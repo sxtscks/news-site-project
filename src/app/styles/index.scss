@@ -10,3 +10,12 @@
   color: var(--primary-color);
   min-height: 100vh;
 }
+
+.content {
+  display: flex;
+}
+
+.pageWrapper {
+  flex-grow: 1;
+  padding: 20px;
+}
