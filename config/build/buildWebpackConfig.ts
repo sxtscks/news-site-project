@@ -1,12 +1,12 @@
-import {BuildOptions} from "./types/config";
-import {Configuration} from "webpack";
-import {buildPlugins} from "./buildPlugins";
-import {buildLoaders} from "./buildLoaders";
-import {buildResolvers} from "./buildResolvers";
-import {buildDevServer} from "./buildDevServer";
+import { Configuration } from 'webpack';
+import { BuildOptions } from './types/config';
+import { buildPlugins } from './buildPlugins';
+import { buildLoaders } from './buildLoaders';
+import { buildResolvers } from './buildResolvers';
+import { buildDevServer } from './buildDevServer';
 
 export function buildWebpackConfig(options: BuildOptions): Configuration {
-  const {paths, mode, isDev} = options
+  const { paths, mode, isDev } = options;
 
   return {
     mode,
@@ -14,7 +14,7 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
     output: {
       filename: '[name].[contenthash].js',
       path: paths.build,
-      clean: true
+      clean: true,
     },
     plugins: buildPlugins(options),
     module: {
@@ -22,6 +22,6 @@ export function buildWebpackConfig(options: BuildOptions): Configuration {
     },
     resolve: buildResolvers(options),
     devtool: isDev ? 'inline-source-map' : undefined,
-    devServer: isDev ? buildDevServer(options) : undefined
-  }
+    devServer: isDev ? buildDevServer(options) : undefined,
+  };
 }
