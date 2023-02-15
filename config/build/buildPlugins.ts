@@ -1,12 +1,18 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import {
-  WebpackPluginInstance, ProgressPlugin, DefinePlugin, HotModuleReplacementPlugin,
+  WebpackPluginInstance,
+  ProgressPlugin,
+  DefinePlugin,
+  HotModuleReplacementPlugin,
 } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInstance[] {
+export function buildPlugins(
+  { paths, isDev }: BuildOptions,
+): WebpackPluginInstance[] {
   return [
     new HtmlWebpackPlugin({
       template: paths.html,
@@ -21,5 +27,8 @@ export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
     }),
     new HotModuleReplacementPlugin(),
     new ReactRefreshWebpackPlugin(),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }),
   ];
 }
