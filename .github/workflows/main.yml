@@ -25,6 +25,6 @@ jobs:
       - name: lint typescript
         run: npm run lint:ts
       - name: lint css
-        run: npm run lint:css
+        run: npm run lint:style
       - name: unit tests
         run: npm run test:unit
