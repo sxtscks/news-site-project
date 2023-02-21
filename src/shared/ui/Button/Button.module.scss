@@ -1,10 +1,3 @@
-.clear {
-  padding: 0;
-  border: none;
-  background: none;
-  outline: none;
-}
-
 .button {
   cursor: pointer;
   color: var(--primary-color);
@@ -54,4 +47,16 @@
 
 .size_xl {
   font: var(--font-xl);
+}
+
+.clear,
+.clearInverted {
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.clearInverted {
+  color: var(--inverted-primary-color);
 }
