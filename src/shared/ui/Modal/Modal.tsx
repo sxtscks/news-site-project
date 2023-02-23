@@ -1,7 +1,7 @@
 import React, {
   FC,
   useCallback,
-  useEffect,
+  useEffect, useState,
 } from 'react';
 import { classnames } from 'shared/lib/classnames/classnames';
 import { Portal } from 'shared/ui/Portal/Portal';
@@ -10,15 +10,25 @@ import classes from './Modal.module.scss';
 export interface ModalProps {
   className?: string;
   isOpen?: boolean;
-  onClose?: () => void
+  onClose?: () => void;
+  lazy?: boolean;
 }
 export const Modal: FC<ModalProps> = (props) => {
   const {
     className,
     isOpen,
     onClose,
+    lazy,
     children,
   } = props;
+
+  const [isMounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setMounted(true);
+    }
+  }, [isOpen]);
 
   const modes: Record<string, boolean> = {
     [classes.opened]: isOpen,
@@ -49,6 +59,8 @@ export const Modal: FC<ModalProps> = (props) => {
   const onContentClick = (event: React.MouseEvent) => {
     event.stopPropagation();
   };
+
+  if (lazy && !isMounted) return null;
 
   return (
     <Portal>
