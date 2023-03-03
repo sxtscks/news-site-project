@@ -10,7 +10,7 @@
     { "id": "2", "body": "some comment2", "postId": "2" }
   ],
   "profile": {
-    "first": "Кирилл",
+    "firstname": "Кирилл",
     "lastname": "Белов",
     "age": 26,
     "currency": "RUB",

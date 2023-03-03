@@ -16,6 +16,7 @@ export interface BuildEnv {
   mode: BuildMode,
   /** Порт */
   port: number
+  apiUrl: string
 }
 
 export interface BuildOptions {
@@ -27,4 +28,5 @@ export interface BuildOptions {
   isDev: boolean
   /** Порт */
   port: number
+  apiUrl: string
 }

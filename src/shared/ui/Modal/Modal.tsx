@@ -3,7 +3,7 @@ import React, {
   useCallback,
   useEffect, useState,
 } from 'react';
-import { classnames } from 'shared/lib/classnames/classnames';
+import { classnames, Modes } from 'shared/lib/classnames/classnames';
 import { Portal } from 'shared/ui/Portal/Portal';
 import classes from './Modal.module.scss';
 
@@ -30,7 +30,7 @@ export const Modal: FC<ModalProps> = (props) => {
     }
   }, [isOpen]);
 
-  const modes: Record<string, boolean> = {
+  const modes: Modes = {
     [classes.opened]: isOpen,
   };
 

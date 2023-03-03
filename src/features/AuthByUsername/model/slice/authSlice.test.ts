@@ -1,5 +1,4 @@
 import { AuthSchema } from 'features/AuthByUsername';
-import { DeepPartial } from '@reduxjs/toolkit';
 import { authActions, authReducer } from './authSlice';
 
 describe('authSlice', () => {
