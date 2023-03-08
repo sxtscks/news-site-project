@@ -2,7 +2,8 @@ import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { AuthSchema } from 'features/AuthByUsername';
 import {
-  AnyAction, CombinedState, Dispatch,
+  AnyAction,
+  CombinedState,
   EnhancedStore,
   Reducer,
   ReducersMapObject,
@@ -40,4 +41,5 @@ export interface ThunkExtraArg {
 export interface ThunkConfig<T> {
   rejectValue: T;
   extra: ThunkExtraArg;
+  state: StateSchema;
 }
