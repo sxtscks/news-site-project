@@ -1,6 +1,7 @@
 import { RuleSetRule } from 'webpack';
 import { BuildOptions } from './types/config';
 import { buildCssLoaders } from './loaders/buildCssLoaders';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   const typescriptLoader = {
@@ -16,8 +17,10 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     use: ['@svgr/webpack'],
   };
 
+  const babelLoader = buildBabelLoader(isDev);
+
   const fileLoader = {
-    test: /\.(png|jpe?g|gif)$/i,
+    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
     use: [
       {
         loader: 'file-loader',
@@ -28,6 +31,7 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   return [
     fileLoader,
     svgLoader,
+    babelLoader,
     typescriptLoader,
     scssLoader,
   ];

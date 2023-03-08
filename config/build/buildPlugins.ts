@@ -32,8 +32,8 @@ export function buildPlugins(
   ];
 
   if (isDev) {
-    plugins.push(new HotModuleReplacementPlugin());
     plugins.push(new ReactRefreshWebpackPlugin());
+    plugins.push(new HotModuleReplacementPlugin());
     plugins.push(
       new BundleAnalyzerPlugin({
         openAnalyzer: false,
