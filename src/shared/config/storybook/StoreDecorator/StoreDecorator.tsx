@@ -5,10 +5,12 @@ import { profileReducer } from 'entities/Profile';
 import {
   ReducerList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { articleDetailsReducer } from 'entities/Article';
 
 const defaultAsyncReducers: ReducerList = {
   auth: authReducer,
   profile: profileReducer,
+  articleDetails: articleDetailsReducer,
 };
 
 export const StoreDecorator = (
