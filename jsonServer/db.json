@@ -121,13 +121,15 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://catherineasquithgallery.com/uploads/posts/2021-02/1612257749_72-p-paren-na-fioletovom-fone-96.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://xakep.ru/wp-content/uploads/2015/08/41885761_xl.jpg"
     }
   ]
 }
