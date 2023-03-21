@@ -4,6 +4,7 @@ import { Currency } from 'entities/Currency';
 import { updateProfileData } from './updateProfileData';
 
 const data = {
+  id: '1',
   username: 'admin',
   firstname: 'Test',
   lastname: 'Test',

@@ -6,11 +6,19 @@ import {
   ReducerList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from 'entities/Article';
+import {
+  addNewCommentReducer,
+} from 'features/AddNewComment/model/slices/addNewCommentSlice';
+import {
+  articleDetailsCommentsReducer,
+} from 'pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice';
 
 const defaultAsyncReducers: ReducerList = {
   auth: authReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
+  addNewComment: addNewCommentReducer,
+  articleDetailsComments: articleDetailsCommentsReducer,
 };
 
 export const StoreDecorator = (

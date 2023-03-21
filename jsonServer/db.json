@@ -29,7 +29,9 @@
       "img": "https://27sysday.ru/wp-content/uploads/2021/05/js_thumb.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -104,18 +106,56 @@
       "text": "some comment 2",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "qwerqwerqwer",
+      "id": "Ip3yZb9"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "hello world",
+      "id": "LH7JPan"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "12341234",
+      "id": "5T-eZwj"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "gdfgdfsg",
+      "id": "r_wTegK"
     }
   ],
-  "profile": {
-    "firstname": "Кирилл",
-    "lastname": "Белов",
-    "age": "26",
-    "currency": "rub",
-    "country": "italy",
-    "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "Кирилл",
+      "lastname": "Белов",
+      "age": "26",
+      "currency": "rub",
+      "country": "italy",
+      "city": "Moscow",
+      "username": "admin",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    },
+    {
+      "id": "2",
+      "firstname": "Олег",
+      "lastname": "Петров",
+      "age": "23",
+      "currency": "rub",
+      "country": "russia",
+      "city": "Moscow",
+      "username": "oleg_p",
+      "avatar": "https://xakep.ru/wp-content/uploads/2015/08/41885761_xl.jpg"
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -126,7 +166,7 @@
     },
     {
       "id": "2",
-      "username": "user",
+      "username": "oleg_p",
       "password": "123",
       "role": "USER",
       "avatar": "https://xakep.ru/wp-content/uploads/2015/08/41885761_xl.jpg"

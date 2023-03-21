@@ -3,12 +3,15 @@ import { classnames } from 'shared/lib/classnames/classnames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Text } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'app/providers/router/lib/routeConfig';
+import { generatePath } from 'react-router-dom';
 import { Comment } from '../../model/types/comment';
 import classes from './CommentCard.module.scss';
 
 export interface CommentCardProps {
   className?: string;
-  comment: Comment;
+  comment?: Comment;
   isLoading?: boolean;
 }
 
@@ -17,7 +20,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
 
   if (isLoading) {
     return (
-      <div className={classnames(classes.CommentCard, {}, [className])}>
+      <div className={classnames(classes.CommentCard, {}, [className, classes.loading])}>
         <div className={classes.header}>
           <Skeleton
             width={30}
@@ -36,12 +39,17 @@ export const CommentCard = memo((props: CommentCardProps) => {
     );
   }
 
+  if (!comment) return null;
+
   return (
     <div className={classnames(classes.CommentCard, {}, [className])}>
-      <div className={classes.header}>
+      <AppLink
+        to={generatePath(RoutePath.profile, { id: comment?.user.id ?? '' })}
+        className={classes.header}
+      >
         {comment?.user.avatar && <Avatar className={classes.avatar} size={30} src={comment?.user.avatar} />}
         <Text text={comment?.user.username} />
-      </div>
+      </AppLink>
       <Text className={classes.text} text={comment?.text} />
     </div>
   );
