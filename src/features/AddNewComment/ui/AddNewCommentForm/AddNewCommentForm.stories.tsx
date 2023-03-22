@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { AddNewCommentForm } from './AddNewCommentForm';
+import AddNewCommentForm from './AddNewCommentForm';
 
 export default {
   title: 'feature/AddNewCommentForm',

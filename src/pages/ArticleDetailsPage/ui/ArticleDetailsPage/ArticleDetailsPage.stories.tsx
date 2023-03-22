@@ -28,6 +28,10 @@ const article: Article = {
   img: 'https://27sysday.ru/wp-content/uploads/2021/05/js_thumb.jpg',
   views: 1022,
   createdAt: '26.02.2022',
+  user: {
+    id: '1',
+    username: 'admin',
+  },
   type: [ArticleType.IT],
   blocks: [
     {
