@@ -17,6 +17,7 @@ import {
 import { AddNewCommentForm } from 'features/AddNewComment';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'app/providers/router/lib/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
@@ -54,15 +55,15 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
   if (!id) {
     return (
-      <div className={classnames(classes.ArticleDetailsPage, {}, [className])}>
+      <Page className={classnames(classes.ArticleDetailsPage, {}, [className])}>
         {t('Статья не найдена')}
-      </div>
+      </Page>
     );
   }
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classnames('', {}, [className])}>
+      <Page className={classnames('', {}, [className])}>
         <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
           {t('Назад к списку')}
         </Button>
@@ -70,7 +71,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
         <Text className={classes.commentTitle} title={t('Комментарии')} />
         <AddNewCommentForm onSendComment={onSendComment} />
         <CommentList comments={comments ?? []} isLoading={isLoading} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

@@ -23,6 +23,7 @@ import {
   useInitialEffect,
 } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const initialReducers: ReducerList = {
@@ -63,7 +64,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-      <div className={classnames('', {}, [className])}>
+      <Page className={classnames('', {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.length && validateErrors.map((error) => (
           <Text
@@ -78,7 +79,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
           error={error}
           onChangeProfile={onChangeProfile}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };
