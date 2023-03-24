@@ -27,15 +27,15 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const navigate = useNavigate();
 
   const onOpenArticle = useCallback(() => {
-    navigate(generatePath(RoutePath.articleDetails, { id: article.id }));
-  }, [navigate, article.id]);
+    navigate(generatePath(RoutePath.articleDetails, { id: article?.id }));
+  }, [navigate, article?.id]);
 
-  const typesText = <Text text={article.type.join(', ')} className={classes.types} />;
+  const typesText = <Text text={article?.type.join(', ')} className={classes.types} />;
 
-  const viewsText = <Text text={article.views.toString()} className={classes.views} />;
+  const viewsText = <Text text={article?.views.toString()} className={classes.views} />;
 
   if (view === ArticleView.BIG) {
-    const textBlock = article.blocks.find(
+    const textBlock = article?.blocks.find(
       (block) => block.type === ArticleBlockType.TEXT,
     ) as ArticleTextBlock;
 
@@ -43,13 +43,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
       <div className={classnames(classes.ArticleListItem, {}, [className, classes[view]])}>
         <Card>
           <div className={classes.header}>
-            <Avatar size={30} src={article.user.avatar} />
-            <Text text={article.user.username} className={classes.username} />
-            <Text text={article.createdAt} className={classes.date} />
+            <Avatar size={30} src={article?.user.avatar} />
+            <Text text={article?.user.username} className={classes.username} />
+            <Text text={article?.createdAt} className={classes.date} />
           </div>
-          <Text title={article.title} className={classes.title} />
+          <Text title={article?.title} className={classes.title} />
           {typesText}
-          <img src={article.img} className={classes.image} alt={article.title} />
+          <img src={article?.img} className={classes.image} alt={article?.title} />
           {textBlock && (
             <ArticleTextBlockComponent block={textBlock} className={classes.textBlock} />
           )}
@@ -68,14 +68,14 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     <div className={classnames(classes.ArticleListItem, {}, [className, classes[view]])}>
       <Card onClick={onOpenArticle}>
         <div className={classes.imageWrapper}>
-          <img src={article.img} className={classes.image} alt={article.title} />
-          <Text text={article.createdAt} className={classes.date} />
+          <img src={article?.img} className={classes.image} alt={article?.title} />
+          <Text text={article?.createdAt} className={classes.date} />
         </div>
         <div className={classes.infoWrapper}>
           {typesText}
           {viewsText}
         </div>
-        <Text text={article.title} className={classes.title} />
+        <Text text={article?.title} className={classes.title} />
       </Card>
     </div>
   );
