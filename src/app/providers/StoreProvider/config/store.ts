@@ -10,8 +10,7 @@ import {
   createReducerManager,
 } from 'app/providers/StoreProvider/config/reducerManager';
 import { api } from 'shared/api/api';
-import { NavigateOptions } from 'react-router';
-import { To } from 'history';
+import { scrollSaveReducer } from 'features/ScrollSave';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export const createReduxStore = (
@@ -22,6 +21,7 @@ export const createReduxStore = (
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
+    scrollSave: scrollSaveReducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);

@@ -14,10 +14,12 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsComments } from 'pages/ArticleDetailsPage';
 import { AddNewCommentSchema } from 'features/AddNewComment';
 import { ArticlePageSchema } from 'pages/ArticlesPage';
+import { ScrollSaveSchema } from 'features/ScrollSave';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scrollSave: ScrollSaveSchema;
   auth?: AuthSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
