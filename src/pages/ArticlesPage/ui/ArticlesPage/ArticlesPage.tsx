@@ -16,11 +16,11 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'shared/ui/Page/Page';
 import {
+  initArticlesPage,
+} from '../../model/services/initArticlesPage/initArticlesPage';
+import {
   fetchNextArticlesPage,
 } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import {
-  fetchArticlesList,
-} from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
   articlesPageActions,
   articlesPageReducer,
@@ -54,14 +54,11 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState());
-    dispatch(fetchArticlesList({
-      page: 1,
-    }));
+    dispatch(initArticlesPage());
   });
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page
         className={classnames('', {}, [className])}
         onScrollEnd={onLoadNextPart}
