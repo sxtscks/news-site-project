@@ -1,6 +1,10 @@
 import React, { memo } from 'react';
 import { classnames } from 'shared/lib/classnames/classnames';
-import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { Text, TextSize } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
+import {
+  ArticleListItemSkeleton,
+} from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import classes from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
@@ -26,6 +30,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     isLoading,
     view = ArticleView.SMALL,
   } = props;
+  const { t } = useTranslation('articles');
 
   const renderArticle = (article: Article, index: number) => (
     <ArticleListItem
@@ -34,6 +39,15 @@ export const ArticleList = memo((props: ArticleListProps) => {
       view={view}
     />
   );
+
+  if (!isLoading && !articles.length) {
+    return (
+      <div className={classnames('', {}, [className, classes[view]])}>
+        <Text size={TextSize.L} title={t('Статьи не найдены')} />
+      </div>
+    );
+  }
+
   return (
     <div className={classnames('', {}, [className, classes[view]])}>
       {articles.length > 0 ? articles.map(renderArticle) : null}
