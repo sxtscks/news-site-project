@@ -11,7 +11,11 @@ import {
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsComments } from 'pages/ArticleDetailsPage';
+import {
+  ArticleDetailsComments,
+  ArticleDetailsPageRecommendations,
+  ArticleDetailsPageSchema,
+} from 'pages/ArticleDetailsPage';
 import { AddNewCommentSchema } from 'features/AddNewComment';
 import { ArticlePageSchema } from 'pages/ArticlesPage';
 import { ScrollSaveSchema } from 'features/ScrollSave';
@@ -24,8 +28,8 @@ export interface StateSchema {
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articlesPage?: ArticlePageSchema;
-  articleDetailsComments?: ArticleDetailsComments
-  addNewComment?: AddNewCommentSchema
+  addNewComment?: AddNewCommentSchema;
+  articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

@@ -9,16 +9,14 @@ import { articleDetailsReducer } from 'entities/Article';
 import {
   addNewCommentReducer,
 } from 'features/AddNewComment/model/slices/addNewCommentSlice';
-import {
-  articleDetailsCommentsReducer,
-} from 'pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice';
+import { articlesDetailsPageReducer } from 'pages/ArticleDetailsPage';
 
 const defaultAsyncReducers: ReducerList = {
   auth: authReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   addNewComment: addNewCommentReducer,
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: articlesDetailsPageReducer,
 };
 
 export const StoreDecorator = (
