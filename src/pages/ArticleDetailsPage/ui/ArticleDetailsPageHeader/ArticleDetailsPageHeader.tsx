@@ -5,11 +5,9 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'app/providers/router/lib/routeConfig';
 import { generatePath, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User';
-import { getArticleDetailsData } from 'entities/Article';
 import {
   getCanEditArticle,
-} from 'pages/ArticleDetailsPage/model/selectors/article';
+} from '../../model/selectors/article';
 import classes from './ArticleDetailsPageHeader.module.scss';
 
 export interface ArticleDetailsPageHeaderProps {

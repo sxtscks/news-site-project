@@ -11,17 +11,15 @@ import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import {
-  ArticleCodeBlockComponent,
-} from 'entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import {
-  ArticleTextBlockComponent,
-} from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
-import {
-  ArticleImageBlockComponent,
-} from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
-import {
   useInitialEffect,
 } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import {
+  ArticleCodeBlockComponent,
+} from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import {
+  ArticleTextBlockComponent,
+} from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import {
   getArticleDetailsData,
   getArticleDetailsError,

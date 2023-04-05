@@ -4,7 +4,7 @@ import React, {
   useEffect, useState,
 } from 'react';
 import { classnames, Modes } from 'shared/lib/classnames/classnames';
-import { Portal } from 'shared/ui/Portal/Portal';
+import { Portal } from '../Portal/Portal';
 import classes from './Modal.module.scss';
 
 export interface ModalProps {

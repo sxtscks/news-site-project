@@ -1,4 +1,4 @@
-import { AuthSchema } from 'features/AuthByUsername';
+import { AuthSchema } from '../types/authSchema';
 import { authActions, authReducer } from './authSlice';
 
 describe('authSlice', () => {

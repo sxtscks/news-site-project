@@ -5,10 +5,10 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { useSelector } from 'react-redux';
-import { getProfileReadonly } from 'entities/Profile';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { CurrencySelect } from 'entities/Currency';
 import { CountrySelect } from 'entities/Country';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import classes from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
