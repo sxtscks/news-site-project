@@ -13,6 +13,8 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import {
   useInitialEffect,
 } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import {
   ArticleCodeBlockComponent,
 } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
@@ -101,19 +103,21 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   } else {
     content = (
       <>
-        <div className={classes.avatarWrapper}>
+        <HStack justify="center" max>
           <Avatar size={200} src={data?.img} className={classes.avatar} />
-        </div>
-        <Text
-          title={data?.title}
-          text={data?.subtitle}
-          className={classes.title}
-          size={TextSize.L}
-        />
-        <div>
-          <Text text={data?.views.toString()} />
-          <Text text={data?.createdAt} />
-        </div>
+        </HStack>
+        <VStack gap="4" max>
+          <Text
+            title={data?.title}
+            text={data?.subtitle}
+            className={classes.title}
+            size={TextSize.L}
+          />
+          <HStack gap="8">
+            <Text text={data?.views.toString()} />
+            <Text text={data?.createdAt} />
+          </HStack>
+        </VStack>
         {data?.blocks?.map(renderBlock)}
       </>
     );
@@ -121,9 +125,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-      <div className={classnames(classes.ArticleDetails, {}, [className])}>
+      <VStack gap="16" className={classnames(classes.ArticleDetails, {}, [className])}>
         {content}
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   );
 });

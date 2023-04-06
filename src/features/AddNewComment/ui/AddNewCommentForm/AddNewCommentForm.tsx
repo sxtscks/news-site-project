@@ -8,6 +8,7 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
 import {
   addNewCommentActions,
   addNewCommentReducer,
@@ -45,7 +46,11 @@ const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classnames(classes.AddNewCommentForm, {}, [className])}>
+      <HStack
+        justify="between"
+        max
+        className={classnames(classes.AddNewCommentForm, {}, [className])}
+      >
         <Input
           className={classes.input}
           placeholder={t('Введите текст комментария')}
@@ -55,7 +60,7 @@ const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
         <Button theme={ButtonTheme.OUTLINE} onClick={onSendHandler}>
           {t('Отправить')}
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 });

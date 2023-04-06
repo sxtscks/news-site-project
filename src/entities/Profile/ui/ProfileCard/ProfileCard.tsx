@@ -8,6 +8,8 @@ import { useSelector } from 'react-redux';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { CurrencySelect } from 'entities/Currency';
 import { CountrySelect } from 'entities/Country';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
+import { HStack } from 'shared/ui/Stack/HStack/HStack';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import classes from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
@@ -34,17 +36,21 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 
   if (isLoading) {
     return (
-      <div
+      <HStack
+        justify="center"
+        max
         className={classnames(classes.profileCard, {}, [className, classes.loading])}
       >
         <Loader />
-      </div>
+      </HStack>
     );
   }
 
   if (error) {
     return (
-      <div
+      <HStack
+        justify="center"
+        max
         className={classnames(classes.profileCard, {}, [className, classes.error])}
       >
         <Text
@@ -53,59 +59,61 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
           text={t('Попробуйте обновить страницу')}
           align={TextAlign.CENTER}
         />
-      </div>
+      </HStack>
     );
   }
 
   return (
-    <div className={classnames(classes.profileCard, modes, [className])}>
-      <div className={classes.profileInfo}>
-        {data?.avatar && (
-          <div className={classes.avatarWrapper}>
-            <Avatar src={data?.avatar} size={100} />
-          </div>
-        )}
-        <Input
-          value={data?.firstname}
-          placeholder={t('Имя')}
-          onChange={(value) => onChangeProfile?.('firstname', value)}
-          readonly={readonly}
-        />
-        <Input
-          value={data?.lastname}
-          placeholder={t('Фамилия')}
-          onChange={(value) => onChangeProfile?.('lastname', value)}
-          readonly={readonly}
-        />
-        <Input
-          value={data?.username}
-          placeholder={t('Логин')}
-          onChange={(value) => onChangeProfile?.('username', value)}
-          readonly={readonly}
-        />
-        <Input
-          value={data?.age}
-          placeholder={t('Возраст')}
-          onChange={(value) => onChangeProfile?.('age', value)}
-          readonly={readonly}
-        />
-        <Input
-          value={data?.city}
-          placeholder={t('Город')}
-          onChange={(value) => onChangeProfile?.('city', value)}
-          readonly={readonly}
-        />
-        <CurrencySelect
-          value={data?.currency}
-          onChange={(value) => onChangeProfile?.('currency', value)}
-          readonly={readonly}
-        />
-        <CountrySelect
-          value={data?.country}
-          onChange={(value) => onChangeProfile?.('country', value)}
-          readonly={readonly}
-        />
-      </div>
-    </div>
+    <VStack
+      gap="16"
+      max
+      className={classnames(classes.profileCard, modes, [className])}
+    >
+      {data?.avatar && (
+        <HStack justify="center" max>
+          <Avatar src={data?.avatar} size={100} />
+        </HStack>
+      )}
+      <Input
+        value={data?.firstname}
+        placeholder={t('Имя')}
+        onChange={(value) => onChangeProfile?.('firstname', value)}
+        readonly={readonly}
+      />
+      <Input
+        value={data?.lastname}
+        placeholder={t('Фамилия')}
+        onChange={(value) => onChangeProfile?.('lastname', value)}
+        readonly={readonly}
+      />
+      <Input
+        value={data?.username}
+        placeholder={t('Логин')}
+        onChange={(value) => onChangeProfile?.('username', value)}
+        readonly={readonly}
+      />
+      <Input
+        value={data?.age}
+        placeholder={t('Возраст')}
+        onChange={(value) => onChangeProfile?.('age', value)}
+        readonly={readonly}
+      />
+      <Input
+        value={data?.city}
+        placeholder={t('Город')}
+        onChange={(value) => onChangeProfile?.('city', value)}
+        readonly={readonly}
+      />
+      <CurrencySelect
+        value={data?.currency}
+        onChange={(value) => onChangeProfile?.('currency', value)}
+        readonly={readonly}
+      />
+      <CountrySelect
+        value={data?.country}
+        onChange={(value) => onChangeProfile?.('country', value)}
+        readonly={readonly}
+      />
+    </VStack>
   );
 };

@@ -24,6 +24,7 @@ import {
 } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page/Page';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const initialReducers: ReducerList = {
@@ -65,20 +66,22 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <Page className={classnames('', {}, [className])}>
-        <ProfilePageHeader />
-        {validateErrors?.length && validateErrors.map((error) => (
-          <Text
-            theme={TextTheme.ERROR}
-            text={validateErrorsTranslations[error]}
-            key={error}
+        <VStack gap="16" max>
+          <ProfilePageHeader />
+          {validateErrors?.length && validateErrors.map((error) => (
+            <Text
+              theme={TextTheme.ERROR}
+              text={validateErrorsTranslations[error]}
+              key={error}
+            />
+          ))}
+          <ProfileCard
+            data={formData}
+            isLoading={isLoading}
+            error={error}
+            onChangeProfile={onChangeProfile}
           />
-        ))}
-        <ProfileCard
-          data={formData}
-          isLoading={isLoading}
-          error={error}
-          onChangeProfile={onChangeProfile}
-        />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

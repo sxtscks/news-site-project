@@ -3,22 +3,8 @@
   border: 2px solid var(--inverted-bg-color);
 }
 
-.profileInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
 .loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 200px;
-}
-
-.avatarWrapper {
-  display: flex;
-  justify-content: center;
 }
 
 .editing {
