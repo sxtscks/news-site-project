@@ -10,7 +10,9 @@ import { CurrencySelect } from 'entities/Currency';
 import { CountrySelect } from 'entities/Country';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { HStack } from 'shared/ui/Stack/HStack/HStack';
-import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import {
+  getProfileReadonly,
+} from 'features/EditableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
 import classes from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 

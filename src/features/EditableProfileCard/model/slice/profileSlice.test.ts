@@ -1,10 +1,8 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+import { ProfileSchema, ValidateProfileError } from '../types/editableProfileCardSchema';
 import { updateProfileData } from '../service/updateProfileData/updateProfileData';
-import {
-  ProfileSchema,
-  ValidateProfileError,
-} from '../types/profile';
+
 import { profileActions, profileReducer } from './profileSlice';
 
 const data = {
@@ -50,7 +48,7 @@ describe('profileSlice', () => {
   test('test update profile service pending', () => {
     const state: DeepPartial<ProfileSchema> = {
       isLoading: false,
-      validateError: [ValidateProfileError.SERVER_ERROR],
+      validateErrors: [ValidateProfileError.SERVER_ERROR],
     };
     expect(profileReducer(
       state as ProfileSchema,
