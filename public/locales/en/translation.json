@@ -24,5 +24,7 @@
   "My App": "My App",
   "Создать статью": "Create article",
   "Укажите валюту": "Select currency",
-  "Укажите страну": "Select country"
+  "Укажите страну": "Select country",
+  "Админка": "Admin page",
+  "У вас нет доступа к этой странице": "Forbidden page"
 }
