@@ -28,7 +28,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
         title={t('Рекомендуем')}
       />
       <ArticleList
-        articles={articles}
+        articles={articles ?? []}
         target="_blank"
       />
     </VStack>
