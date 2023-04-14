@@ -1,7 +1,5 @@
 import React, {
-  FC,
-  useCallback,
-  useEffect, useState,
+  ReactNode, useCallback, useEffect, useState,
 } from 'react';
 import { classnames, Modes } from 'shared/lib/classnames/classnames';
 import { Portal } from '../Portal/Portal';
@@ -12,8 +10,9 @@ export interface ModalProps {
   isOpen?: boolean;
   onClose?: () => void;
   lazy?: boolean;
+  children: ReactNode;
 }
-export const Modal: FC<ModalProps> = (props) => {
+export const Modal = (props: ModalProps) => {
   const {
     className,
     isOpen,

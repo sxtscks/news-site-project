@@ -33,22 +33,14 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const { id } = useParams<{id: string}>();
   const { t } = useTranslation('articles');
 
-  if (!id) {
-    return (
-      <Page className={classnames(classes.ArticleDetailsPage, {}, [className])}>
-        {t('Статья не найдена')}
-      </Page>
-    );
-  }
-
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classnames('', {}, [className])}>
         <VStack gap="16" max>
-          <ArticleDetailsPageHeader articleId={id} />
-          <ArticleDetails id={id} />
+          <ArticleDetailsPageHeader articleId={id ?? ''} />
+          <ArticleDetails id={id ?? ''} />
           <ArticleRecommendationsList />
-          <ArticleDetailsComments id={id} />
+          <ArticleDetailsComments id={id ?? ''} />
         </VStack>
       </Page>
     </DynamicModuleLoader>

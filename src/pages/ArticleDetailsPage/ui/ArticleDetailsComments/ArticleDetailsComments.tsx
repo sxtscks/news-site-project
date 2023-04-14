@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classnames } from 'shared/lib/classnames/classnames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
@@ -10,6 +10,7 @@ import {
   useInitialEffect,
 } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from 'shared/ui/Stack/VStack/VStack';
+import { Loader } from 'shared/ui/Loader/Loader';
 import {
   fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -51,7 +52,9 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
         size={TextSize.L}
         title={t('Комментарии')}
       />
-      <AddNewCommentForm onSendComment={onSendComment} />
+      <Suspense fallback={<Loader />}>
+        <AddNewCommentForm onSendComment={onSendComment} />
+      </Suspense>
       <CommentList comments={comments ?? []} isLoading={isLoading} />
     </VStack>
   );

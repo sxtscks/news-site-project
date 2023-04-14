@@ -10,6 +10,9 @@ import {
 } from '../../src/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { Theme } from '../../src/app/providers/ThemeProvider';
 import 'loki/configure-react';
+import {
+  SuspenseDecorator,
+} from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -24,3 +27,4 @@ export const parameters = {
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouterDecorator);
+addDecorator(SuspenseDecorator);
