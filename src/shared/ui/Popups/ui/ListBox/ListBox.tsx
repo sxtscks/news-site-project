@@ -1,10 +1,12 @@
 import { Fragment, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classnames } from 'shared/lib/classnames/classnames';
-import { HStack } from '../Stack/HStack/HStack';
+import { HStack } from '../../../Stack/HStack/HStack';
 import classes from './ListBox.module.scss';
-import { Button } from '../Button/Button';
-import { DropdownDirection } from '../../types/ui';
+import popupClasses from '../../styles/popup.module.scss';
+import { Button } from '../../../Button/Button';
+import { DropdownDirection } from '../../../../types/ui';
+import { mapDirectionClass } from '../../styles/constants';
 
 export interface ListBoxItem {
   value: string;
@@ -22,13 +24,6 @@ interface ListBoxProps {
   direction?: DropdownDirection;
   label?: string;
 }
-
-const mapDirectionClass: Record<DropdownDirection, string> = {
-  bottomLeft: classes.optionBottomLeft,
-  bottomRight: classes.optionBottomRight,
-  topLeft: classes.optionTopLeft,
-  topRight: classes.optionTopRight,
-};
 
 export const ListBox = (props: ListBoxProps) => {
   const {
@@ -48,7 +43,7 @@ export const ListBox = (props: ListBoxProps) => {
       <HListBox
         disabled={readonly}
         as="div"
-        className={classnames(classes.listBox, {}, [className])}
+        className={classnames(popupClasses.popup, {}, [className])}
         value={value}
         onChange={onChange}
       >
@@ -72,8 +67,8 @@ export const ListBox = (props: ListBoxProps) => {
                   className={classnames(
                     classes.item,
                     {
-                      [classes.active]: active,
-                      [classes.disabled]: person.disabled,
+                      [popupClasses.active]: active,
+                      [popupClasses.disabled]: person.disabled,
                     },
                   )}
                 >
