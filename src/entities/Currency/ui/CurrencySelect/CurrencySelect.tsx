@@ -1,9 +1,9 @@
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classnames } from 'shared/lib/classnames/classnames';
-import { Select } from 'shared/ui/Select/Select';
 import { List } from '@storybook/addon-interactions/dist/ts3.9/components/List';
-import { ListBox } from 'shared/ui/Popups/ui/ListBox/ListBox';
+import { classnames } from '@/shared/lib/classnames/classnames';
+import { Select } from '@/shared/ui/Select/Select';
+import { ListBox } from '@/shared/ui/Popups/ui/ListBox/ListBox';
 import { Currency } from '../../model/types/currency';
 
 export interface CurrencySelectProps {

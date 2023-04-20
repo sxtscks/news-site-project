@@ -1,6 +1,6 @@
 import { Fragment, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { classnames } from 'shared/lib/classnames/classnames';
+import { classnames } from '@/shared/lib/classnames/classnames';
 import { HStack } from '../../../Stack/HStack/HStack';
 import classes from './ListBox.module.scss';
 import popupClasses from '../../styles/popup.module.scss';

@@ -4,13 +4,13 @@ import {
   Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { userReducer } from 'entities/User';
+import { userReducer } from '@/entities/User';
 import {
   createReducerManager,
-} from 'app/providers/StoreProvider/config/reducerManager';
-import { api } from 'shared/api/api';
-import { scrollSaveReducer } from 'features/ScrollSave';
-import { rtkApi } from 'shared/api/rtkApi';
+} from '@/app/providers/StoreProvider/config/reducerManager';
+import { api } from '@/shared/api/api';
+import { scrollSaveReducer } from '@/features/ScrollSave';
+import { rtkApi } from '@/shared/api/rtkApi';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export const createReduxStore = (

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classnames } from 'shared/lib/classnames/classnames';
+import { classnames } from '@/shared/lib/classnames/classnames';
 import cls from './Overlay.module.scss';
 
 interface OverlayProps {

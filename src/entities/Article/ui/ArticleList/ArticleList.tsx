@@ -1,7 +1,7 @@
 import React, { HTMLAttributeAnchorTarget, memo } from 'react';
-import { classnames } from 'shared/lib/classnames/classnames';
-import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { classnames } from '@/shared/lib/classnames/classnames';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
 import {
   ArticleListItemSkeleton,
 } from '../ArticleListItem/ArticleListItemSkeleton';

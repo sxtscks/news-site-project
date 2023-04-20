@@ -1,17 +1,17 @@
 import React, { FC, memo } from 'react';
-import { classnames } from 'shared/lib/classnames/classnames';
-import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { classnames } from '@/shared/lib/classnames/classnames';
+import { ArticleDetails } from '@/entities/Article';
 import {
   DynamicModuleLoader,
   ReducerList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from 'widgets/Page/Page';
-import { VStack } from 'shared/ui/Stack/VStack/VStack';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Page } from '@/widgets/Page/Page';
+import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import {
   ArticleRecommendationsList,
-} from 'features/ArticleRecommendationsList';
+} from '@/features/ArticleRecommendationsList';
 import classes from './ArticleDetailsPage.module.scss';
 import { articlesDetailsPageReducer } from '../../model/slice';
 import {

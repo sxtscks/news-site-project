@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classnames } from 'shared/lib/classnames/classnames';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import { ArticleList } from 'entities/Article';
-import { VStack } from 'shared/ui/Stack/VStack/VStack';
+import { classnames } from '@/shared/lib/classnames/classnames';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { ArticleList } from '@/entities/Article';
+import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { useGetArticleRecsQuery } from '../../api/articleRecommendationsApi';
 
 export interface ArticleRecommendationsListProps {

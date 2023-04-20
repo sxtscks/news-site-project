@@ -3,8 +3,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import {
   StoreDecorator,
-} from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { Article, ArticleSortField } from 'entities/Article';
+} from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { Article, ArticleSortField } from '@/entities/Article';
 import ArticlesPage from './ArticlesPage';
 
 export default {

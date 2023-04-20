@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
-import { ArticleList } from 'entities/Article';
+import { ArticleList } from '@/entities/Article';
 import { getArticles } from '../../model/slice/articlePageSlice';
 import {
   getArticlesIsLoading,

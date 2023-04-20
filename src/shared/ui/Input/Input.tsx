@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes, memo, useCallback } from 'react';
-import { classnames, Modes } from 'shared/lib/classnames/classnames';
+import { classnames, Modes } from '@/shared/lib/classnames/classnames';
 import classes from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>

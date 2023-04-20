@@ -1,18 +1,18 @@
-import { classnames } from 'shared/lib/classnames/classnames';
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { classnames } from '@/shared/lib/classnames/classnames';
 import {
   useInitialEffect,
-} from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { ProfileCard } from 'entities/Profile';
+} from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { ProfileCard } from '@/entities/Profile';
 import {
   DynamicModuleLoader,
   ReducerList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from 'shared/ui/Stack/VStack/VStack';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import {
   getProfileForm,
 } from '../../model/selectors/getProfileForm/getProfileForm';

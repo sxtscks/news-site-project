@@ -1,20 +1,20 @@
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classnames } from 'shared/lib/classnames/classnames';
+import { useSelector } from 'react-redux';
+import { classnames } from '@/shared/lib/classnames/classnames';
 import {
   DynamicModuleLoader,
   ReducerList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useSelector } from 'react-redux';
-import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text, TextAlign, TextSize } from '@/shared/ui/Text/Text';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import {
   useInitialEffect,
-} from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { HStack } from 'shared/ui/Stack/HStack/HStack';
-import { VStack } from 'shared/ui/Stack/VStack/VStack';
+} from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { HStack } from '@/shared/ui/Stack/HStack/HStack';
+import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import {
   ArticleCodeBlockComponent,
 } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
