@@ -1,8 +1,8 @@
 @import "reset";
-@import "app/styles/variables/global.scss";
-@import "app/styles/themes/light.scss";
-@import "app/styles/themes/dark.scss";
-@import "app/styles/themes/orange.scss";
+@import "variables/global";
+@import "themes/light";
+@import "themes/dark";
+@import "themes/orange";
 
 .app,
 .app_modal,
