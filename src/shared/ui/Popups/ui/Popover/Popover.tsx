@@ -20,7 +20,7 @@ export const Popover = (props: PopoverProps) => {
 
   return (
     <PopoverComponent className={classnames(popupClasses.popup, {}, [className])}>
-      <PopoverComponent.Button className={popupClasses.trigger}>
+      <PopoverComponent.Button as="div" className={popupClasses.trigger}>
         {trigger}
       </PopoverComponent.Button>
 

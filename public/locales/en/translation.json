@@ -26,5 +26,10 @@
   "Укажите валюту": "Select currency",
   "Укажите страну": "Select country",
   "Админка": "Admin page",
-  "У вас нет доступа к этой странице": "Forbidden page"
+  "У вас нет доступа к этой странице": "Forbidden page",
+  "Ваш отзыв": "Your feedback",
+  "Закрыть": "Close",
+  "Оцените статью": "Rate article",
+  "Оставьте ваш отзыв о статье": "Leave your feedback",
+  "Спасибо за оценку!": "Thank you!"
 }
