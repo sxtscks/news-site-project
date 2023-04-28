@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { classnames } from '@/shared/lib/classnames/classnames';
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets/Page';
 
 export interface ArticleEditPageProps {
   className?: string;

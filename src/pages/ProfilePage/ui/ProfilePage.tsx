@@ -5,12 +5,12 @@ import {
   DynamicModuleLoader,
   ReducerList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
-import { EditableProfileCard } from '@/features/EditableProfileCard';
 import {
+  EditableProfileCard,
   profileReducer,
-} from '@/features/EditableProfileCard/model/slice/profileSlice';
+} from '@/features/EditableProfileCard';
 
 const initialReducers: ReducerList = {
   profile: profileReducer,

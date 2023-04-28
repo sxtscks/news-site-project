@@ -8,9 +8,6 @@ import { Theme } from '@/app/providers/ThemeProvider';
 import {
   StoreDecorator,
 } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import {
-  Normal,
-} from '@/features/AddNewComment/ui/AddNewCommentForm/AddNewCommentForm.stories';
 import AboutPage from './AboutPage';
 
 export default {

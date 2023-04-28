@@ -49,6 +49,13 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-undef': 'off',
     'sxty-plugin/path-checker': ['error', { alias: '@' }],
+    'sxty-plugin/public-api-imports': [
+      'error',
+      {
+        alias: '@',
+        testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+      },
+    ],
     'react/no-array-index-key': 'off',
   },
   globals: {

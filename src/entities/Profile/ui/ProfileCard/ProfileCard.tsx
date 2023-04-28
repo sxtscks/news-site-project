@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { getProfileReadonly } from '@/features/EditableProfileCard';
 import { classnames, Modes } from '@/shared/lib/classnames/classnames';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text';
 import { Input } from '@/shared/ui/Input/Input';
@@ -10,9 +11,6 @@ import { CurrencySelect } from '@/entities/Currency';
 import { CountrySelect } from '@/entities/Country';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { HStack } from '@/shared/ui/Stack/HStack/HStack';
-import {
-  getProfileReadonly,
-} from '@/features/EditableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
 import classes from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
