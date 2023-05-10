@@ -14,21 +14,15 @@ export const buildBabelLoader = ({
   use: {
     loader: 'babel-loader',
     options: {
+      cacheDirectory: true,
       presets: ['@babel/preset-env'],
       plugins: [
-        [
-          'i18next-extract',
-          {
-            locales: ['ru', 'en'],
-            keyAsDefaultValue: true,
-          },
-        ],
         [
           '@babel/plugin-transform-typescript',
           { isTsx },
         ],
         '@babel/plugin-transform-runtime',
-        isTsx && [
+        isTsx && !isDev && [
           babelRemovePropsPlugin,
           { props: ['data-testid'] },
         ],
