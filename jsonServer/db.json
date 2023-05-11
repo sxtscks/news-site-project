@@ -663,18 +663,18 @@
   "profile": [
     {
       "id": "1",
-      "first": "jghwer",
-      "lastname": "asfewr",
+      "firstname": "admin",
+      "lastname": "admin",
       "age": 465,
       "currency": "RUB",
       "country": "Russia",
       "city": "Moscow",
-      "username": "admin213",
+      "username": "admin",
       "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
     },
     {
       "id": "2",
-      "first": "Kirill",
+      "firstname": "Kirill",
       "lastname": "Belov",
       "age": 465,
       "currency": "RUB",
