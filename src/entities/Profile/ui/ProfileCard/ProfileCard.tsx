@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { getProfileReadonly } from '@/features/EditableProfileCard';
 import { classnames, Modes } from '@/shared/lib/classnames/classnames';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/Text/Text';
 import { Input } from '@/shared/ui/Input/Input';
@@ -18,17 +16,16 @@ export interface ProfileCardProps {
   className?: string;
   data?: Profile;
   isLoading?: boolean;
+  readonly?: boolean;
   error?: string;
   onChangeProfile?: (name: string, value?: string | number) => void
 }
 
 export const ProfileCard: FC<ProfileCardProps> = (props) => {
   const {
-    className, data, error, isLoading, onChangeProfile,
+    className, data, error, isLoading, onChangeProfile, readonly,
   } = props;
   const { t } = useTranslation('profile');
-
-  const readonly = useSelector(getProfileReadonly);
 
   const modes: Modes = {
     [classes.editing]: !readonly,

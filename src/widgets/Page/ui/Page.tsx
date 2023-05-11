@@ -15,8 +15,9 @@ import {
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import classes from './Page.module.scss';
+import { TestProps } from '@/shared/types/tests';
 
-export interface PageProps {
+export interface PageProps extends TestProps {
   className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
@@ -25,7 +26,9 @@ export interface PageProps {
 export const PAGE_ID = 'PAGE_ID';
 
 export const Page = memo((props: PageProps) => {
-  const { className, children, onScrollEnd } = props;
+  const {
+    className, children, onScrollEnd, dataTestId,
+  } = props;
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   const dispatch = useAppDispatch();
@@ -51,6 +54,7 @@ export const Page = memo((props: PageProps) => {
 
   return (
     <main
+      data-testid={dataTestId ?? 'Page'}
       ref={wrapperRef}
       className={classnames(classes.Page, {}, [className])}
       onScroll={onScroll}

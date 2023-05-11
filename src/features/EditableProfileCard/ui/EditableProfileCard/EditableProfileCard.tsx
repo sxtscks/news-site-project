@@ -35,6 +35,7 @@ import {
 import {
   getProfileValidateError,
 } from '../../model/selectors/getProfileValidateError/getProfileValidateError';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -52,6 +53,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const dispatch = useAppDispatch();
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
+  const readonly = useSelector(getProfileReadonly);
   const error = useSelector(getProfileError);
   const validateErrors = useSelector(getProfileValidateError);
 
@@ -94,6 +96,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
           isLoading={isLoading}
           error={error}
           onChangeProfile={onChangeProfile}
+          readonly={readonly}
         />
       </VStack>
     </DynamicModuleLoader>
