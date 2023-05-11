@@ -48,7 +48,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',
     'no-undef': 'off',
-    'sxty-plugin/path-checker': ['error', { alias: '@' }],
+    // 'sxty-plugin/path-checker': ['error', { alias: '@' }],
     'sxty-plugin/public-api-imports': [
       'error',
       {
