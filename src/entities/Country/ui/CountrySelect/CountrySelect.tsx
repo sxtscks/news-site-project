@@ -5,10 +5,10 @@ import { ListBox } from '@/shared/ui/Popups/ui/ListBox/ListBox';
 import { Country } from '../../model/types/country';
 
 export interface CountrySelectProps {
-  className?: string
-  value?: Country
+  className?: string;
+  value?: Country;
   onChange?: (value: Country) => void;
-  readonly?: boolean
+  readonly?: boolean;
 }
 
 const options = [
@@ -18,14 +18,15 @@ const options = [
 ];
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
-  const {
-    className, value, onChange, readonly,
-  } = props;
+  const { className, value, onChange, readonly } = props;
   const { t } = useTranslation();
 
-  const onChangeHandler = useCallback((value: string) => {
-    onChange?.(value as Country);
-  }, [onChange]);
+  const onChangeHandler = useCallback(
+    (value: string) => {
+      onChange?.(value as Country);
+    },
+    [onChange]
+  );
 
   return (
     <ListBox

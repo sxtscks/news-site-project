@@ -7,33 +7,23 @@ import { SidebarItemType } from '../../model/types/sidebar';
 import classes from './SidebarItem.module.scss';
 
 export interface SidebarItemProps {
-  item: SidebarItemType
-  collapsed: boolean
+  item: SidebarItemType;
+  collapsed: boolean;
 }
 
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
   const { t } = useTranslation();
-  const {
-    path, text, Icon, authOnly,
-  } = item;
+  const { path, text, Icon, authOnly } = item;
 
   const isAuth = useSelector(getUserAuthData);
 
   if (authOnly && !isAuth) return null;
 
   return (
-    <AppLink
-      theme={AppLinkTheme.SECONDARY}
-      to={path}
-    >
+    <AppLink theme={AppLinkTheme.SECONDARY} to={path}>
       <div className={classes.linkItem}>
         <Icon className={classes.icon} />
-        {!collapsed
-            && (
-              <span>
-                {t(text)}
-              </span>
-            )}
+        {!collapsed && <span>{t(text)}</span>}
       </div>
     </AppLink>
   );

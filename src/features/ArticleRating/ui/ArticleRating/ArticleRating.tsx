@@ -59,6 +59,5 @@ export const ArticleRating = memo((props: ArticleRatingProps) => {
       onConfirm={onConfirm}
       hasFeedback
     />
-
   );
 });

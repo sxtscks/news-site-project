@@ -4,14 +4,11 @@ import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { classnames } from '@/shared/lib/classnames/classnames';
 
 export interface LangSwitcherProps {
-  className?: string
-  short?: boolean
+  className?: string;
+  short?: boolean;
 }
 
-export const LangSwitcher = memo(({
-  className,
-  short,
-}: LangSwitcherProps) => {
+export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
   const { t, i18n } = useTranslation();
 
   const onTranslate = async () => {

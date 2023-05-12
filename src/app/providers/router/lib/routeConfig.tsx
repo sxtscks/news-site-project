@@ -13,7 +13,7 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage';
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
   roles?: UserRole[];
-}
+};
 export enum AppRouter {
   MAIN = 'main',
   ABOUT = 'about',
@@ -24,7 +24,7 @@ export enum AppRouter {
   ARTICLE_EDIT = 'articleEdit',
   ADMIN_PANEL = 'adminPanel',
   FORBIDDEN = 'forbidden',
-  NOT_FOUND = 'notFound'
+  NOT_FOUND = 'notFound',
 }
 
 export const RoutePath: Record<AppRouter, string> = {

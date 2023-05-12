@@ -5,7 +5,8 @@ import { classnames } from '@/shared/lib/classnames/classnames';
 import { Input } from '@/shared/ui/Input/Input';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import {
-  DynamicModuleLoader, ReducerList,
+  DynamicModuleLoader,
+  ReducerList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { HStack } from '@/shared/ui/Stack/HStack/HStack';
@@ -35,9 +36,12 @@ const AddNewCommentForm = memo((props: AddNewCommentFormProps) => {
   const text = useSelector(getCommentText);
   const error = useSelector(getCommentError);
 
-  const onTextChange = useCallback((value: string) => {
-    dispatch(addNewCommentActions.setText(value));
-  }, [dispatch]);
+  const onTextChange = useCallback(
+    (value: string) => {
+      dispatch(addNewCommentActions.setText(value));
+    },
+    [dispatch]
+  );
 
   const onSendHandler = useCallback(() => {
     onSendComment(text);

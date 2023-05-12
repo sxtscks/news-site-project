@@ -15,4 +15,5 @@ const addNewCommentSlice = createSlice({
   },
 });
 
-export const { actions: addNewCommentActions, reducer: addNewCommentReducer } = addNewCommentSlice;
+export const { actions: addNewCommentActions, reducer: addNewCommentReducer } =
+  addNewCommentSlice;

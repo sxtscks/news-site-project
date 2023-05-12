@@ -11,12 +11,14 @@ export interface ArticleEditPageProps {
 const ArticleEditPage = memo((props: ArticleEditPageProps) => {
   const { className } = props;
   const { t } = useTranslation('articles');
-  const { id } = useParams<{id: string}>();
+  const { id } = useParams<{ id: string }>();
   const isEdit = !!id;
 
   return (
     <Page className={classnames('', {}, [className])}>
-      {isEdit ? `${t('Редактирование статьи с ID = ')}${id}` : t('Создание новой статьи')}
+      {isEdit
+        ? `${t('Редактирование статьи с ID = ')}${id}`
+        : t('Создание новой статьи')}
     </Page>
   );
 });

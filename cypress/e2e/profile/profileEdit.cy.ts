@@ -15,7 +15,13 @@ describe('Пользователь заходит на страницу проф
   });
   it('И редактирует его', () => {
     cy.updateProfile('new name', 'new lastname');
-    cy.getByTestId('ProfileCard.FirstnameInput').should('have.value', 'new name');
-    cy.getByTestId('ProfileCard.LastnameInput').should('have.value', 'new lastname');
+    cy.getByTestId('ProfileCard.FirstnameInput').should(
+      'have.value',
+      'new name'
+    );
+    cy.getByTestId('ProfileCard.LastnameInput').should(
+      'have.value',
+      'new lastname'
+    );
   });
 });

@@ -3,7 +3,7 @@ import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
 
 interface useThemeResult {
   toggleTheme: () => void;
-  theme: Theme
+  theme: Theme;
 }
 
 export const useTheme = (): useThemeResult => {
@@ -12,17 +12,17 @@ export const useTheme = (): useThemeResult => {
   const toggleTheme = () => {
     let newTheme: Theme;
     switch (theme) {
-    case Theme.LIGHT:
-      newTheme = Theme.ORANGE;
-      break;
-    case Theme.DARK:
-      newTheme = Theme.LIGHT;
-      break;
-    case Theme.ORANGE:
-      newTheme = Theme.DARK;
-      break;
-    default:
-      newTheme = Theme.LIGHT;
+      case Theme.LIGHT:
+        newTheme = Theme.ORANGE;
+        break;
+      case Theme.DARK:
+        newTheme = Theme.LIGHT;
+        break;
+      case Theme.ORANGE:
+        newTheme = Theme.DARK;
+        break;
+      default:
+        newTheme = Theme.LIGHT;
     }
     setTheme?.(newTheme);
     document.body.className = newTheme;

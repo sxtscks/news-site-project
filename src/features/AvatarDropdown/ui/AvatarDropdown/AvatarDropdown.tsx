@@ -41,10 +41,14 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
       direction="bottomLeft"
       className={classnames('', {}, [className])}
       items={[
-        ...(shouldShowAdminPanel ? [{
-          content: t('Админка'),
-          href: RoutePath.adminPanel,
-        }] : []),
+        ...(shouldShowAdminPanel
+          ? [
+              {
+                content: t('Админка'),
+                href: RoutePath.adminPanel,
+              },
+            ]
+          : []),
         {
           content: t('Профиль'),
           href: generatePath(RoutePath.profile, { id: userAuthData.id }),

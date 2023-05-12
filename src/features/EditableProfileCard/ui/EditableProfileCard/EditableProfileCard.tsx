@@ -3,9 +3,7 @@ import React, { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classnames } from '@/shared/lib/classnames/classnames';
-import {
-  useInitialEffect,
-} from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { ProfileCard } from '@/entities/Profile';
 import {
@@ -13,33 +11,19 @@ import {
   ReducerList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
-import {
-  getProfileForm,
-} from '../../model/selectors/getProfileForm/getProfileForm';
-import {
-  getProfileIsLoading,
-} from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
-import {
-  getProfileError,
-} from '../../model/selectors/getProfileError/getProfileError';
+import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
-import {
-  ValidateProfileError,
-} from '../../model/types/editableProfileCardSchema';
-import {
-  EditableProfileCardHeader,
-} from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import {
-  fetchProfileData,
-} from '../../model/service/fetchProfileData/fetchProfileData';
-import {
-  getProfileValidateError,
-} from '../../model/selectors/getProfileValidateError/getProfileValidateError';
+import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { fetchProfileData } from '../../model/service/fetchProfileData/fetchProfileData';
+import { getProfileValidateError } from '../../model/selectors/getProfileValidateError/getProfileValidateError';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 
 interface EditableProfileCardProps {
-    className?: string;
-    id: string;
+  className?: string;
+  id: string;
 }
 
 const reducers: ReducerList = {
@@ -60,7 +44,9 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const validateErrorsTranslations = {
     [ValidateProfileError.SERVER_ERROR]: t('Ошибка с сервера'),
     [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
-    [ValidateProfileError.INCORRECT_USER_DATA]: t('Некорректные имя или фамилия'),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t(
+      'Некорректные имя или фамилия'
+    ),
     [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректная страна'),
     [ValidateProfileError.NO_DATA]: t('Отсутствуют данные'),
   };
@@ -71,26 +57,26 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     }
   });
 
-  const onChangeProfile = useCallback((name: string, value?: string | number) => {
-    dispatch(profileActions.updateProfile({ [name]: value }));
-  }, [dispatch]);
+  const onChangeProfile = useCallback(
+    (name: string, value?: string | number) => {
+      dispatch(profileActions.updateProfile({ [name]: value }));
+    },
+    [dispatch]
+  );
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <VStack
-        gap="8"
-        max
-        className={classnames('', {}, [className])}
-      >
+      <VStack gap="8" max className={classnames('', {}, [className])}>
         <EditableProfileCardHeader />
-        {validateErrors?.length && validateErrors.map((error) => (
-          <Text
-            theme={TextTheme.ERROR}
-            text={validateErrorsTranslations[error]}
-            key={error}
-            dataTestId="EditableProfileCard.Error"
-          />
-        ))}
+        {validateErrors?.length &&
+          validateErrors.map((error) => (
+            <Text
+              theme={TextTheme.ERROR}
+              text={validateErrorsTranslations[error]}
+              key={error}
+              dataTestId="EditableProfileCard.Error"
+            />
+          ))}
         <ProfileCard
           data={formData}
           isLoading={isLoading}

@@ -4,7 +4,7 @@ import classes from './Card.module.scss';
 
 export enum CardTheme {
   NORMAL = 'normal',
-  OUTLINED = 'outlined'
+  OUTLINED = 'outlined',
 }
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
@@ -16,18 +16,19 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
 
 export const Card = memo((props: CardProps) => {
   const {
-    className, children, theme = CardTheme.NORMAL, fullWidth, ...otherProps
+    className,
+    children,
+    theme = CardTheme.NORMAL,
+    fullWidth,
+    ...otherProps
   } = props;
 
   return (
     <div
-      className={
-        classnames(
-          classes.Card,
-          { [classes.fullWidth]: fullWidth },
-          [className, classes[theme]],
-        )
-      }
+      className={classnames(classes.Card, { [classes.fullWidth]: fullWidth }, [
+        className,
+        classes[theme],
+      ])}
       {...otherProps}
     >
       {children}

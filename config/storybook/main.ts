@@ -4,9 +4,7 @@ import { BuildPaths } from '../build/types/config';
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 
 export default {
-  stories: [
-    '../../src/**/*.stories.@(js|jsx|ts|tsx)',
-  ],
+  stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -45,11 +43,13 @@ export default {
     });
     config!.module!.rules.push(buildCssLoaders(true));
 
-    config!.plugins!.push(new DefinePlugin({
-      __IS_DEV__: JSON.stringify(true),
-      __API__: JSON.stringify('https://testapi.ru'),
-      __PROJECT__: JSON.stringify('storybook'),
-    }));
+    config!.plugins!.push(
+      new DefinePlugin({
+        __IS_DEV__: JSON.stringify(true),
+        __API__: JSON.stringify('https://testapi.ru'),
+        __PROJECT__: JSON.stringify('storybook'),
+      })
+    );
 
     config!.resolve!.modules = [
       path.resolve(__dirname, '../../src'),

@@ -6,7 +6,8 @@ import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input/Input';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import {
-  DynamicModuleLoader, ReducerList,
+  DynamicModuleLoader,
+  ReducerList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
@@ -18,8 +19,8 @@ import { authActions, authReducer } from '../../model/slice/authSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 
 export interface LoginFormProps {
-  className?: string
-  onSuccess: () => void
+  className?: string;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducerList = {
@@ -34,29 +35,42 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const isLoading = useSelector(getLoginIsLoading);
   const error = useSelector(getLoginError);
 
-  const onUsernameChange = useCallback((value: string) => {
-    dispatch(authActions.setUsername(value));
-  }, [dispatch]);
+  const onUsernameChange = useCallback(
+    (value: string) => {
+      dispatch(authActions.setUsername(value));
+    },
+    [dispatch]
+  );
 
-  const onPasswordChange = useCallback((value: string) => {
-    dispatch(authActions.setPassword(value));
-  }, [dispatch]);
+  const onPasswordChange = useCallback(
+    (value: string) => {
+      dispatch(authActions.setPassword(value));
+    },
+    [dispatch]
+  );
 
   const onLogin = useCallback(async () => {
-    const result = await dispatch(loginByUsername({ username, password }));
+    const result = await dispatch(
+      loginByUsername({
+        username,
+        password,
+      })
+    );
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
     }
   }, [dispatch, username, password, onSuccess]);
 
   return (
-    <DynamicModuleLoader
-      reducers={initialReducers}
-      removeAfterUnmount
-    >
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <div className={classnames(classes.loginForm, {}, [className])}>
         <Text title={t('Форма авторизации')} />
-        {error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />}
+        {error && (
+          <Text
+            text={t('Вы ввели неверный логин или пароль')}
+            theme={TextTheme.ERROR}
+          />
+        )}
         <Input
           onChange={onUsernameChange}
           type="text"

@@ -8,16 +8,10 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/Stack/VStack/VStack';
-import {
-  ArticleRecommendationsList,
-} from '@/features/ArticleRecommendationsList';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { articlesDetailsPageReducer } from '../../model/slice';
-import {
-  ArticleDetailsPageHeader,
-} from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import {
-  ArticleDetailsComments,
-} from '../ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/ArticleRating';
 
 export interface ArticleDetailsPageProps {
@@ -29,7 +23,7 @@ const reducers: ReducerList = {
 };
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
-  const { id } = useParams<{id: string}>();
+  const { id } = useParams<{ id: string }>();
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>

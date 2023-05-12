@@ -21,28 +21,35 @@ import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 export interface ArticleListItemProps {
   className?: string;
-  article: Article
-  view: ArticleView
-  target?: HTMLAttributeAnchorTarget
+  article: Article;
+  view: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-  const {
-    className, article, view, target,
-  } = props;
+  const { className, article, view, target } = props;
   const { t } = useTranslation();
 
-  const typesText = <Text text={article?.type.join(', ')} className={classes.types} />;
+  const typesText = (
+    <Text text={article?.type.join(', ')} className={classes.types} />
+  );
 
-  const viewsText = <Text text={article?.views.toString()} className={classes.views} />;
+  const viewsText = (
+    <Text text={article?.views.toString()} className={classes.views} />
+  );
 
   if (view === ArticleView.BIG) {
     const textBlock = article?.blocks.find(
-      (block) => block.type === ArticleBlockType.TEXT,
+      (block) => block.type === ArticleBlockType.TEXT
     ) as ArticleTextBlock;
 
     return (
-      <div className={classnames(classes.ArticleListItem, {}, [className, classes[view]])}>
+      <div
+        className={classnames(classes.ArticleListItem, {}, [
+          className,
+          classes[view],
+        ])}
+      >
         <Card>
           <div className={classes.header}>
             <Avatar size={30} src={article?.user.avatar} />
@@ -58,16 +65,17 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             alt={article?.title}
           />
           {textBlock && (
-            <ArticleTextBlockComponent block={textBlock} className={classes.textBlock} />
+            <ArticleTextBlockComponent
+              block={textBlock}
+              className={classes.textBlock}
+            />
           )}
           <div className={classes.footer}>
             <AppLink
               target={target}
               to={generatePath(RoutePath.articleDetails, { id: article.id })}
             >
-              <Button theme={ButtonTheme.OUTLINE}>
-                {t('Читать далее')}
-              </Button>
+              <Button theme={ButtonTheme.OUTLINE}>{t('Читать далее')}</Button>
             </AppLink>
             {viewsText}
           </div>

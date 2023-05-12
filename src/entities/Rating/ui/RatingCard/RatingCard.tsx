@@ -22,7 +22,13 @@ export interface RatingCardProps {
 
 export const RatingCard = memo((props: RatingCardProps) => {
   const {
-    className, title, feedbackTitle, hasFeedback, onCancel, onConfirm, rate = 0,
+    className,
+    title,
+    feedbackTitle,
+    hasFeedback,
+    onCancel,
+    onConfirm,
+    rate = 0,
   } = props;
   const { t } = useTranslation();
 
@@ -52,7 +58,11 @@ export const RatingCard = memo((props: RatingCardProps) => {
     <Card fullWidth className={classnames('', {}, [className])}>
       <VStack align="center" gap="8" max>
         <Text title={starsCount ? t('Спасибо за оценку!') : title} />
-        <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
+        <StarRating
+          selectedStars={starsCount}
+          size={40}
+          onSelect={onSelectStars}
+        />
       </VStack>
       <Modal isOpen={isOpenModal} lazy>
         <VStack max gap="32">
@@ -66,9 +76,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
             <Button onClick={cancelHandle} theme={ButtonTheme.OUTLINE_RED}>
               {t('Закрыть')}
             </Button>
-            <Button onClick={confirmHandle}>
-              {t('Отправить')}
-            </Button>
+            <Button onClick={confirmHandle}>{t('Отправить')}</Button>
           </HStack>
         </VStack>
       </Modal>

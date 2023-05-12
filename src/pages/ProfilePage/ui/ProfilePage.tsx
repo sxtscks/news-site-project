@@ -6,7 +6,7 @@ import { VStack } from '@/shared/ui/Stack/VStack/VStack';
 import { EditableProfileCard } from '@/features/EditableProfileCard';
 
 export interface ProfilePageProps {
-  className?: string
+  className?: string;
 }
 
 const ProfilePage: FC<ProfilePageProps> = ({ className }) => {

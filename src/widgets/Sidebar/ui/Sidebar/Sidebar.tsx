@@ -10,7 +10,7 @@ import classes from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 export interface SidebarProps {
-  className?: string
+  className?: string;
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
@@ -25,13 +25,11 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
   return (
     <aside
       data-testid="sidebar"
-      className={
-        classnames(
-          classes.sidebar,
-          { [classes.collapsed]: collapsed },
-          [className],
-        )
-      }
+      className={classnames(
+        classes.sidebar,
+        { [classes.collapsed]: collapsed },
+        [className]
+      )}
     >
       <Button
         data-testid="sidebar-toggle"

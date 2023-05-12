@@ -10,5 +10,5 @@ export const getCanEditArticle = createSelector(
       return false;
     }
     return article.user.id === user.id;
-  },
+  }
 );

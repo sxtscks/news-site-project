@@ -9,15 +9,15 @@ export interface ArticleCodeBlockComponentProps {
   block: ArticleCodeBlock;
 }
 
-export const ArticleCodeBlockComponent = memo((props: ArticleCodeBlockComponentProps) => {
-  const { className, block } = props;
-  const { t } = useTranslation('articles');
+export const ArticleCodeBlockComponent = memo(
+  (props: ArticleCodeBlockComponentProps) => {
+    const { className, block } = props;
+    const { t } = useTranslation('articles');
 
-  return (
-    <div
-      className={classnames('', {}, [className])}
-    >
-      <Code content={block.code} />
-    </div>
-  );
-});
+    return (
+      <div className={classnames('', {}, [className])}>
+        <Code content={block.code} />
+      </div>
+    );
+  }
+);

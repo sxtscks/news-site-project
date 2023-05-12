@@ -14,7 +14,7 @@ import { AvatarDropdown } from '@/features/AvatarDropdown';
 import classes from './Navbar.module.scss';
 
 interface NavbarProps {
-  className?: string
+  className?: string;
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
@@ -38,10 +38,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
           className={classes.appName}
           title={t('My App')}
         />
-        <AppLink
-          theme={AppLinkTheme.SECONDARY}
-          to={RoutePath.articleCreate}
-        >
+        <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.articleCreate}>
           {t('Создать статью')}
         </AppLink>
         <HStack gap="16" className={classes.actions}>
@@ -54,10 +51,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
   return (
     <header className={classnames(classes.navbar, {}, [className])}>
-      <Button
-        theme={ButtonTheme.CLEAR_INVERTED}
-        onClick={handleOpenModal}
-      >
+      <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={handleOpenModal}>
         {t('Войти')}
       </Button>
       {isOpen && <LoginModal isOpen={isOpen} onClose={handleCloseModal} />}

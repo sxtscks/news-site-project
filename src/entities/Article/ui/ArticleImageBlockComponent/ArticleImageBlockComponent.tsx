@@ -10,18 +10,16 @@ export interface ArticleImageBlockComponentProps {
   block: ArticleImageBlock;
 }
 
-export const ArticleImageBlockComponent = memo((props: ArticleImageBlockComponentProps) => {
-  const { className, block } = props;
-  const { t } = useTranslation('articles');
+export const ArticleImageBlockComponent = memo(
+  (props: ArticleImageBlockComponentProps) => {
+    const { className, block } = props;
+    const { t } = useTranslation('articles');
 
-  return (
-    <div
-      className={classnames('', {}, [className])}
-    >
-      <img src={block.src} className={classes.image} alt={block.title} />
-      {block.title && (
-        <Text text={block.title} align={TextAlign.CENTER} />
-      )}
-    </div>
-  );
-});
+    return (
+      <div className={classnames('', {}, [className])}>
+        <img src={block.src} className={classes.image} alt={block.title} />
+        {block.title && <Text text={block.title} align={TextAlign.CENTER} />}
+      </div>
+    );
+  }
+);

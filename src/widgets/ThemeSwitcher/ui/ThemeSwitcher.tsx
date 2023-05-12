@@ -6,7 +6,7 @@ import LightIcon from '@/shared/assets/icons/themeLight.svg';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 
 export interface ThemeSwitcherProps {
-  className?: string
+  className?: string;
 }
 
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {

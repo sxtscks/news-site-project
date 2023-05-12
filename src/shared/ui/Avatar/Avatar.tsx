@@ -4,16 +4,19 @@ import classes from './Avatar.module.scss';
 import { AppImage } from '../AppImage';
 
 export interface AvatarProps {
-  className?: string
-  src?: string
-  size?: number
+  className?: string;
+  src?: string;
+  size?: number;
 }
 
 export const Avatar: FC<AvatarProps> = ({ className, src, size }) => {
-  const styles = useMemo<CSSProperties>(() => ({
-    width: size || 100,
-    height: size || 100,
-  }), [size]);
+  const styles = useMemo<CSSProperties>(
+    () => ({
+      width: size || 100,
+      height: size || 100,
+    }),
+    [size]
+  );
 
   return (
     <AppImage

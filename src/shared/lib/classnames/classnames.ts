@@ -1,9 +1,9 @@
-export type Modes = Record<string, boolean | string | undefined>
+export type Modes = Record<string, boolean | string | undefined>;
 
 export const classnames = (
   className: string,
   modes: Modes = {},
-  additional: Array<string | undefined> = [],
+  additional: Array<string | undefined> = []
 ): string => {
   const modesForResult = Object.entries(modes ?? {})
     .filter(([_, value]) => Boolean(value))
@@ -13,6 +13,5 @@ export const classnames = (
     className,
     ...additional.filter((value) => Boolean(value)),
     ...modesForResult,
-  ]
-    .join(' ');
+  ].join(' ');
 };

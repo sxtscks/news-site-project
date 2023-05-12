@@ -1,7 +1,5 @@
 import { EditableProfileCard } from '@/features/EditableProfileCard';
-import {
-  TestProvider,
-} from '@/shared/lib/tests/componentRender/componentRender';
+import { TestProvider } from '@/shared/lib/tests/componentRender/componentRender';
 
 describe('EditableProfileCard.cy.tsx', () => {
   it('playground', () => {
@@ -16,11 +14,9 @@ describe('EditableProfileCard.cy.tsx', () => {
     };
     cy.intercept('GET', '**/profile/*', { fixture: 'profile.json' });
     cy.mount(
-      <TestProvider
-        options={options}
-      >
+      <TestProvider options={options}>
         <EditableProfileCard id="1" />
-      </TestProvider>,
+      </TestProvider>
     );
   });
 });

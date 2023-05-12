@@ -15,28 +15,28 @@ export interface DropdownItem {
 }
 export interface DropdownProps {
   className?: string;
-  items: DropdownItem[]
+  items: DropdownItem[];
   trigger: ReactNode;
   direction?: DropdownDirection;
 }
 
 export const Dropdown = (props: DropdownProps) => {
-  const {
-    className, items, trigger, direction = 'bottomRight',
-  } = props;
+  const { className, items, trigger, direction = 'bottomRight' } = props;
 
   return (
     <Menu as="div" className={classnames(popupClasses.popup, {}, [className])}>
-      <Menu.Button className={popupClasses.trigger}>
-        {trigger}
-      </Menu.Button>
-      <Menu.Items className={classnames(classes.menu, {}, [mapDirectionClass[direction]])}>
+      <Menu.Button className={popupClasses.trigger}>{trigger}</Menu.Button>
+      <Menu.Items
+        className={classnames(classes.menu, {}, [mapDirectionClass[direction]])}
+      >
         {items.map((item, index) => {
-          const content = ({ active }: {active: boolean}) => (
+          const content = ({ active }: { active: boolean }) => (
             <button
               type="button"
               disabled={item.disabled}
-              className={classnames(classes.item, { [popupClasses.active]: active })}
+              className={classnames(classes.item, {
+                [popupClasses.active]: active,
+              })}
               onClick={item.onClick}
             >
               {item.content}
@@ -57,7 +57,11 @@ export const Dropdown = (props: DropdownProps) => {
           }
 
           return (
-            <Menu.Item key={`dropdown-item-${index}`} as={Fragment} disabled={item.disabled}>
+            <Menu.Item
+              key={`dropdown-item-${index}`}
+              as={Fragment}
+              disabled={item.disabled}
+            >
               {content}
             </Menu.Item>
           );

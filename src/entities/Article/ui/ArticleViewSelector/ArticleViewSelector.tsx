@@ -8,9 +8,9 @@ import classes from './ArticleViewSelector.module.scss';
 import { ArticleView } from '../../model/types/article';
 
 export interface ArticleViewSelectorProps {
-  className?: string,
-  view?: ArticleView,
-  onViewClick?: (view: ArticleView) => void
+  className?: string;
+  view?: ArticleView;
+  onViewClick?: (view: ArticleView) => void;
 }
 
 const viewTypes = [
@@ -34,13 +34,12 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
   return (
     <div className={classnames(classes.ArticleViewSelector, {}, [className])}>
       {viewTypes.map((viewType) => (
-        <Button
-          theme={ButtonTheme.CLEAR}
-          onClick={onClick(viewType.view)}
-        >
+        <Button theme={ButtonTheme.CLEAR} onClick={onClick(viewType.view)}>
           <Icon
             Svg={viewType.icon}
-            className={classnames('', { [classes.notSelected]: viewType.view !== view })}
+            className={classnames('', {
+              [classes.notSelected]: viewType.view !== view,
+            })}
           />
         </Button>
       ))}

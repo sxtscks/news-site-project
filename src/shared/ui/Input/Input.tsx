@@ -2,7 +2,10 @@ import React, { InputHTMLAttributes, memo, useCallback } from 'react';
 import { classnames, Modes } from '@/shared/lib/classnames/classnames';
 import classes from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'value' | 'onChange' | 'readOnly'
+>;
 
 export interface InputProps extends HTMLInputProps {
   className?: string;
@@ -22,9 +25,12 @@ export const Input = memo((props: InputProps) => {
     ...otherProps
   } = props;
 
-  const handleOnChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange?.(event.target.value);
-  }, [onChange]);
+  const handleOnChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      onChange?.(event.target.value);
+    },
+    [onChange]
+  );
 
   const modes: Modes = {
     [classes.readonly]: readonly,
@@ -33,9 +39,7 @@ export const Input = memo((props: InputProps) => {
   return (
     <div className={classnames(classes.inputWrapper, modes, [className])}>
       {placeholder && (
-        <div className={classes.placeholder}>
-          {`${placeholder} >`}
-        </div>
+        <div className={classes.placeholder}>{`${placeholder} >`}</div>
       )}
       <input
         className={classes.input}

@@ -5,9 +5,9 @@ import { Loader } from '@/shared/ui/Loader/Loader';
 import { LoginFormLazy } from '../LoginForm/LoginForm.lazy';
 
 export interface LoginModalProps {
-  className?: string
+  className?: string;
   isOpen?: boolean;
-  onClose: () => void
+  onClose: () => void;
 }
 
 export const LoginModal: FC<LoginModalProps> = (props) => {

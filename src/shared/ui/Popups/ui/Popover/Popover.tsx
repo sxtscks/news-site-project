@@ -14,18 +14,20 @@ export interface PopoverProps {
 }
 
 export const Popover = (props: PopoverProps) => {
-  const {
-    className, trigger, children, direction = 'bottomRight',
-  } = props;
+  const { className, trigger, children, direction = 'bottomRight' } = props;
 
   return (
-    <PopoverComponent className={classnames(popupClasses.popup, {}, [className])}>
+    <PopoverComponent
+      className={classnames(popupClasses.popup, {}, [className])}
+    >
       <PopoverComponent.Button as="div" className={popupClasses.trigger}>
         {trigger}
       </PopoverComponent.Button>
 
       <PopoverComponent.Panel
-        className={classnames(classes.panel, {}, [mapDirectionClass[direction]])}
+        className={classnames(classes.panel, {}, [
+          mapDirectionClass[direction],
+        ])}
       >
         {children}
       </PopoverComponent.Panel>

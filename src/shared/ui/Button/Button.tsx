@@ -8,21 +8,21 @@ export enum ButtonTheme {
   OUTLINE = 'outline',
   OUTLINE_RED = 'outlineRed',
   BACKGROUND = 'background',
-  BACKGROUND_INVERTED = 'backgroundInverted'
+  BACKGROUND_INVERTED = 'backgroundInverted',
 }
 
 export enum ButtonSize {
   XL = 'size_xl',
   L = 'size_l',
-  M = 'size_m'
+  M = 'size_m',
 }
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string
-  theme?: ButtonTheme
-  square?: boolean
-  size?: ButtonSize
-  disabled?: boolean
+  className?: string;
+  theme?: ButtonTheme;
+  square?: boolean;
+  size?: ButtonSize;
+  disabled?: boolean;
   fullWidth?: boolean;
 }
 

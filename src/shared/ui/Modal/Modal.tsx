@@ -1,6 +1,4 @@
-import React, {
-  ReactNode, useCallback, useEffect, useState,
-} from 'react';
+import React, { ReactNode, useCallback, useEffect, useState } from 'react';
 import { classnames, Modes } from '@/shared/lib/classnames/classnames';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
@@ -14,13 +12,7 @@ export interface ModalProps {
   children: ReactNode;
 }
 export const Modal = (props: ModalProps) => {
-  const {
-    className,
-    isOpen,
-    onClose,
-    lazy,
-    children,
-  } = props;
+  const { className, isOpen, onClose, lazy, children } = props;
 
   const [isMounted, setMounted] = useState(false);
 
@@ -40,11 +32,14 @@ export const Modal = (props: ModalProps) => {
     }
   }, [onClose]);
 
-  const onKeyDown = useCallback((event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
-      closeHandler();
-    }
-  }, [closeHandler]);
+  const onKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeHandler();
+      }
+    },
+    [closeHandler]
+  );
 
   useEffect(() => {
     if (isOpen) {
@@ -62,9 +57,7 @@ export const Modal = (props: ModalProps) => {
     <Portal>
       <div className={classnames(classes.Modal, modes, [className])}>
         <Overlay onClick={closeHandler} />
-        <div className={classes.content}>
-          {children}
-        </div>
+        <div className={classes.content}>{children}</div>
       </div>
     </Portal>
   );

@@ -8,6 +8,7 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
     'plugin:i18next/recommended',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -25,9 +26,6 @@ module.exports = {
     'sxty-plugin',
   ],
   rules: {
-    'react/jsx-indent': [2, 2],
-    indent: [2, 2],
-    'react/jsx-indent-props': [2, 2],
     'react/jsx-filename-extension': [2, { extensions: ['js', 'jsx', 'tsx'] }],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',

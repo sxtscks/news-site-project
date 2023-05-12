@@ -18,13 +18,12 @@ export interface ProfileCardProps {
   isLoading?: boolean;
   readonly?: boolean;
   error?: string;
-  onChangeProfile?: (name: string, value?: string | number) => void
+  onChangeProfile?: (name: string, value?: string | number) => void;
 }
 
 export const ProfileCard: FC<ProfileCardProps> = (props) => {
-  const {
-    className, data, error, isLoading, onChangeProfile, readonly,
-  } = props;
+  const { className, data, error, isLoading, onChangeProfile, readonly } =
+    props;
   const { t } = useTranslation('profile');
 
   const modes: Modes = {
@@ -36,7 +35,10 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
       <HStack
         justify="center"
         max
-        className={classnames(classes.profileCard, {}, [className, classes.loading])}
+        className={classnames(classes.profileCard, {}, [
+          className,
+          classes.loading,
+        ])}
       >
         <Loader />
       </HStack>
@@ -48,7 +50,10 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
       <HStack
         justify="center"
         max
-        className={classnames(classes.profileCard, {}, [className, classes.error])}
+        className={classnames(classes.profileCard, {}, [
+          className,
+          classes.error,
+        ])}
       >
         <Text
           theme={TextTheme.ERROR}

@@ -1,8 +1,6 @@
 import { screen } from '@testing-library/react';
 import { generatePath } from 'react-router-dom';
-import {
-  componentRender,
-} from '@/shared/lib/tests/componentRender/componentRender';
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import { AppRouter } from './AppRouter';
 import { RoutePath } from '@/app/providers/router/lib/routeConfig';
 
