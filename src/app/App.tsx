@@ -1,21 +1,27 @@
 import React, { Suspense, useEffect } from 'react';
 import './styles/index.scss';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { classnames } from '@/shared/lib/classnames/classnames';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import { AppRouter } from '@/app/providers/router';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
-import { getUserMounted, userActions } from '@/entities/User';
+import { getUserMounted, initAuthData } from '@/entities/User';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { PageLoader } from '@/widgets/PageLoader';
 
 export const App = () => {
   const { theme } = useTheme();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const mounted = useSelector(getUserMounted);
 
   useEffect(() => {
-    dispatch(userActions.initAuthData());
+    dispatch(initAuthData());
   }, [dispatch]);
+
+  if (!mounted) {
+    return <PageLoader />;
+  }
 
   return (
     <div className={classnames('app', {}, [theme])}>
