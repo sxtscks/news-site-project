@@ -13,7 +13,7 @@ import { articlesDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/ArticleRating';
-import { toggleFeatures } from '@/shared/lib/features/toggleFeatures';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 export interface ArticleDetailsPageProps {
   className?: string;
@@ -26,20 +26,17 @@ const reducers: ReducerList = {
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const { id } = useParams<{ id: string }>();
 
-  const articleRating = toggleFeatures({
-    name: 'isArticleRatingEnabled',
-    // eslint-disable-next-line react/no-unstable-nested-components
-    on: () => <ArticleRating id={id ?? ''} />,
-    off: () => null,
-  });
-
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classnames('', {}, [className])}>
         <VStack gap="16" max>
           <ArticleDetailsPageHeader articleId={id ?? ''} />
           <ArticleDetails id={id ?? ''} />
-          {articleRating}
+          <ToggleFeatures
+            feature="isArticleRatingEnabled"
+            on={<ArticleRating id={id ?? ''} />}
+            off={null}
+          />
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={id ?? ''} />
         </VStack>
