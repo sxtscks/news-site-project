@@ -2,14 +2,14 @@ import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classnames } from '@/shared/lib/classnames/classnames';
-import { Input } from '@/shared/ui/Input/Input';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Input } from '@/shared/ui/deprecated/Input/Input';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
 import {
   DynamicModuleLoader,
   ReducerList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { HStack } from '@/shared/ui/Stack/HStack/HStack';
+import { HStack } from '@/shared/ui/deprecated/Stack/HStack/HStack';
 import {
   addNewCommentActions,
   addNewCommentReducer,

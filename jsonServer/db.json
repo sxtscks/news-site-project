@@ -640,12 +640,13 @@
         "ADMIN"
       ],
       "features": {
-        "isArticleRatingEnabled": true
+        "isArticleRatingEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_orange_theme"
+        "theme": "app_dark_theme"
       },
-      "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
+      "avatar": "https://sun9-57.userapi.com/impg/v--Ahh8qTQiKvxfqVJEzwn1tWLUV5XUsHYdZkA/8JtHb2dg1CY.jpg?size=1280x852&quality=96&sign=2cc2a1cd01fe688b68fd21a138780a35&c_uniq_tag=MjlRk_QI-qd8-bJ4Eo_6KcKhdiNtUocO7mmO_OD3lMI&type=album"
     },
     {
       "id": "2",
@@ -655,14 +656,15 @@
         "USER"
       ],
       "features": {
-        "isArticleRatingEnabled": false
+        "isArticleRatingEnabled": false,
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpen": false
       },
-      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+      "avatar": "https://mobimg.b-cdn.net/v3/fetch/56/560a48d69593b630f01e3febe5ac218c.jpeg"
     },
     {
       "id": "2",
@@ -671,7 +673,7 @@
       "role": [
         "MANAGER"
       ],
-      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+      "avatar": "https://mobimg.b-cdn.net/v3/fetch/56/560a48d69593b630f01e3febe5ac218c.jpeg"
     }
   ],
   "profile": [
@@ -684,7 +686,7 @@
       "country": "Russia",
       "city": "Moscow",
       "username": "admin",
-      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
+      "avatar": "https://sun9-57.userapi.com/impg/v--Ahh8qTQiKvxfqVJEzwn1tWLUV5XUsHYdZkA/8JtHb2dg1CY.jpg?size=1280x852&quality=96&sign=2cc2a1cd01fe688b68fd21a138780a35&c_uniq_tag=MjlRk_QI-qd8-bJ4Eo_6KcKhdiNtUocO7mmO_OD3lMI&type=album"
     },
     {
       "id": "2",
@@ -695,7 +697,7 @@
       "country": "Russia",
       "city": "Moscow",
       "username": "sxty",
-      "avatar": "https://xakep.ru/wp-content/uploads/2015/08/41885761_xl.jpg"
+      "avatar": "https://mobimg.b-cdn.net/v3/fetch/56/560a48d69593b630f01e3febe5ac218c.jpeg"
     }
   ],
   "article-ratings": [

@@ -2,11 +2,11 @@ import React, { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { generatePath } from 'react-router-dom';
 import { classnames } from '@/shared/lib/classnames/classnames';
-import { Text } from '@/shared/ui/Text/Text';
-import { Card } from '@/shared/ui/Card/Card';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { Text } from '@/shared/ui/deprecated/Text/Text';
+import { Card } from '@/shared/ui/deprecated/Card/Card';
+import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
+import { AppLink } from '@/shared/ui/deprecated/AppLink/AppLink';
 import { RoutePath } from '@/app/providers/router/lib/routeConfig';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import classes from './ArticleListItem.module.scss';
@@ -16,8 +16,8 @@ import {
   ArticleTextBlock,
   ArticleView,
 } from '../../model/types/article';
-import { AppImage } from '@/shared/ui/AppImage';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { AppImage } from '@/shared/ui/deprecated/AppImage';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
 
 export interface ArticleListItemProps {
   className?: string;

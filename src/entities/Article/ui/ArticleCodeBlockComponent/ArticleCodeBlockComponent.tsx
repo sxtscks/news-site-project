@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classnames } from '@/shared/lib/classnames/classnames';
-import { Code } from '@/shared/ui/Code/Code';
+import { Code } from '@/shared/ui/deprecated/Code/Code';
 import { ArticleCodeBlock } from '../../model/types/article';
 
 export interface ArticleCodeBlockComponentProps {

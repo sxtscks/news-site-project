@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { generatePath } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { classnames } from '@/shared/lib/classnames/classnames';
-import { Dropdown } from '@/shared/ui/Popups';
+import { Dropdown } from '@/shared/ui/deprecated/Popups';
 import { RoutePath } from '@/app/providers/router/lib/routeConfig';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
 import {
   getUserAuthData,
   isUserAdmin,

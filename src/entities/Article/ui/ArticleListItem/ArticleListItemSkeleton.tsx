@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import { classnames } from '@/shared/lib/classnames/classnames';
-import { Text } from '@/shared/ui/Text/Text';
-import { Card } from '@/shared/ui/Card/Card';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Text } from '@/shared/ui/deprecated/Text/Text';
+import { Card } from '@/shared/ui/deprecated/Card/Card';
+import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import classes from './ArticleListItem.module.scss';
 import { ArticleView } from '../../model/types/article';

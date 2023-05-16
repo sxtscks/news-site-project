@@ -1,12 +1,12 @@
 import React, { memo } from 'react';
 import { generatePath } from 'react-router-dom';
 import { classnames } from '@/shared/lib/classnames/classnames';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Text } from '@/shared/ui/Text/Text';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
+import { Text } from '@/shared/ui/deprecated/Text/Text';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
+import { AppLink } from '@/shared/ui/deprecated/AppLink/AppLink';
 import { RoutePath } from '@/app/providers/router/lib/routeConfig';
-import { VStack } from '@/shared/ui/Stack/VStack/VStack';
+import { VStack } from '@/shared/ui/deprecated/Stack/VStack/VStack';
 import { Comment } from '../../model/types/comment';
 import classes from './CommentCard.module.scss';
 

@@ -1,18 +1,24 @@
 import React, { memo, useCallback } from 'react';
-import { Theme, useTheme } from '@/app/providers/ThemeProvider';
+import { useTheme } from '@/app/providers/ThemeProvider';
 import { classnames } from '@/shared/lib/classnames/classnames';
-import DarkIcon from '@/shared/assets/icons/themeDark.svg';
-import LightIcon from '@/shared/assets/icons/themeLight.svg';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import ThemeIconDeprecated from '@/shared/assets/icons/themeLight.svg';
+import ThemeIcon from '@/shared/assets/icons/theme.svg';
+import {
+  Button as ButtonDeprecated,
+  ButtonTheme,
+} from '@/shared/ui/deprecated/Button/Button';
 import { saveJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon/Icon';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Icon } from '@/shared/ui/redesigned/Icon/Icon';
 
 export interface ThemeSwitcherProps {
   className?: string;
 }
 
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
-  const { theme, toggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
   const dispatch = useAppDispatch();
 
   const onToggle = useCallback(() => {
@@ -22,12 +28,31 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   }, [dispatch, toggleTheme]);
 
   return (
-    <Button
-      theme={ButtonTheme.CLEAR}
-      className={classnames('', {}, [className])}
-      onClick={onToggle}
-    >
-      {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
-    </Button>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <Icon
+          Svg={ThemeIcon}
+          width={40}
+          height={40}
+          clickable
+          onClick={onToggle}
+        />
+      }
+      off={
+        <ButtonDeprecated
+          theme={ButtonTheme.CLEAR}
+          className={classnames('', {}, [className])}
+          onClick={onToggle}
+        >
+          <IconDeprecated
+            Svg={ThemeIconDeprecated}
+            width={40}
+            height={40}
+            inverted
+          />
+        </ButtonDeprecated>
+      }
+    />
   );
 });
