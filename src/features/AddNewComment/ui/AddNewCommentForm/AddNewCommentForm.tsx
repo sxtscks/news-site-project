@@ -9,7 +9,7 @@ import {
   ReducerList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { HStack } from '@/shared/ui/deprecated/Stack/HStack/HStack';
+import { HStack } from '@/shared/ui/redesigned/Stack/HStack/HStack';
 import {
   addNewCommentActions,
   addNewCommentReducer,

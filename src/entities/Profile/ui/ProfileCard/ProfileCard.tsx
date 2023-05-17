@@ -7,8 +7,8 @@ import { Loader } from '@/shared/ui/deprecated/Loader/Loader';
 import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
 import { CurrencySelect } from '@/entities/Currency';
 import { CountrySelect } from '@/entities/Country';
-import { VStack } from '@/shared/ui/deprecated/Stack/VStack/VStack';
-import { HStack } from '@/shared/ui/deprecated/Stack/HStack/HStack';
+import { VStack } from '@/shared/ui/redesigned/Stack/VStack/VStack';
+import { HStack } from '@/shared/ui/redesigned/Stack/HStack/HStack';
 import classes from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 

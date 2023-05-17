@@ -1,0 +1,49 @@
+import React, { HTMLAttributes, memo, ReactNode } from 'react';
+import { classnames } from '@/shared/lib/classnames/classnames';
+import classes from './Card.module.scss';
+
+export type CardVariant = 'normal' | 'outlined' | 'light';
+export type CardPadding = '0' | '8' | '16' | '24';
+
+export interface CardProps extends HTMLAttributes<HTMLDivElement> {
+  className?: string;
+  children: ReactNode;
+  variant?: CardVariant;
+  fullWidth?: boolean;
+  padding?: CardPadding;
+}
+
+const mapPaddingToClass: Record<CardPadding, string> = {
+  '0': 'gap_0',
+  '8': 'gap_8',
+  '16': 'gap_16',
+  '24': 'gap_24',
+};
+
+export const Card = memo((props: CardProps) => {
+  const {
+    className,
+    children,
+    variant = 'normal',
+    fullWidth,
+    padding = '8',
+    ...otherProps
+  } = props;
+
+  const paddingClass = mapPaddingToClass[padding];
+
+  return (
+    <div
+      className={classnames(
+        classes.Card,
+        {
+          [classes.fullWidth]: fullWidth,
+        },
+        [className, classes[variant], classes[paddingClass]]
+      )}
+      {...otherProps}
+    >
+      {children}
+    </div>
+  );
+});

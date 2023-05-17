@@ -8,7 +8,7 @@ import { getUserAuthData } from '@/entities/User';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text/Text';
 import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink/AppLink';
 import { RoutePath } from '@/app/providers/router/lib/routeConfig';
-import { HStack } from '@/shared/ui/deprecated/Stack/HStack/HStack';
+import { HStack } from '@/shared/ui/redesigned/Stack/HStack/HStack';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import classes from './Navbar.module.scss';

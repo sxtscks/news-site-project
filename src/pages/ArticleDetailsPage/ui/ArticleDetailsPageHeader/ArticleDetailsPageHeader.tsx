@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { classnames } from '@/shared/lib/classnames/classnames';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
 import { RoutePath } from '@/app/providers/router/lib/routeConfig';
-import { HStack } from '@/shared/ui/deprecated/Stack/HStack/HStack';
+import { HStack } from '@/shared/ui/redesigned/Stack/HStack/HStack';
 import { getCanEditArticle } from '../../model/selectors/article';
 
 export interface ArticleDetailsPageHeaderProps {

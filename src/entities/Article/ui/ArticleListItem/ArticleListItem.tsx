@@ -16,7 +16,7 @@ import {
   ArticleTextBlock,
   ArticleView,
 } from '../../model/types/article';
-import { AppImage } from '@/shared/ui/deprecated/AppImage';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
 
 export interface ArticleListItemProps {

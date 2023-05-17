@@ -2,12 +2,12 @@ import React, { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classnames } from '@/shared/lib/classnames/classnames';
 import { Card } from '@/shared/ui/deprecated/Card/Card';
-import { VStack } from '@/shared/ui/deprecated/Stack/VStack/VStack';
+import { VStack } from '@/shared/ui/redesigned/Stack/VStack/VStack';
 import { Text } from '@/shared/ui/deprecated/Text/Text';
 import { StarRating } from '@/shared/ui/deprecated/StarRating/StarRating';
 import { Modal } from '@/shared/ui/deprecated/Modal/Modal';
 import { Input } from '@/shared/ui/deprecated/Input/Input';
-import { HStack } from '@/shared/ui/deprecated/Stack/HStack/HStack';
+import { HStack } from '@/shared/ui/redesigned/Stack/HStack/HStack';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
 
 export interface RatingCardProps {

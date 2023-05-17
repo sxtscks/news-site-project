@@ -6,7 +6,7 @@ import { Text } from '@/shared/ui/deprecated/Text/Text';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
 import { AppLink } from '@/shared/ui/deprecated/AppLink/AppLink';
 import { RoutePath } from '@/app/providers/router/lib/routeConfig';
-import { VStack } from '@/shared/ui/deprecated/Stack/VStack/VStack';
+import { VStack } from '@/shared/ui/redesigned/Stack/VStack/VStack';
 import { Comment } from '../../model/types/comment';
 import classes from './CommentCard.module.scss';
 
