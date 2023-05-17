@@ -42,7 +42,11 @@ export const Page = memo((props: PageProps) => {
 
   useInfiniteScroll({
     triggerRef,
-    wrapperRef,
+    wrapperRef: toggleFeatures({
+      name: 'isAppRedesigned',
+      off: () => wrapperRef,
+      on: () => undefined,
+    }),
     callback: onScrollEnd,
   });
 
