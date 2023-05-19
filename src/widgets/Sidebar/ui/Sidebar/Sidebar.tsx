@@ -9,7 +9,7 @@ import {
   ButtonTheme,
 } from '@/shared/ui/deprecated/Button/Button';
 import { VStack } from '@/shared/ui/redesigned/Stack/VStack/VStack';
-import { getSidebarItems } from '../../model/selectors/getSidebarItems';
+import { useGetSidebarItems } from '../../model/selectors/getSidebarItems';
 import classes from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { ToggleFeatures } from '@/shared/lib/features';
@@ -24,7 +24,7 @@ export interface SidebarProps {
 export const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
 
-  const sidebarItemsList = useSelector(getSidebarItems);
+  const sidebarItemsList = useGetSidebarItems();
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
