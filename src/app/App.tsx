@@ -1,12 +1,18 @@
-import React, { Suspense, useEffect } from 'react';
+import React, {
+  Component,
+  ComponentType,
+  memo,
+  Suspense,
+  useEffect,
+} from 'react';
 import './styles/index.scss';
 import { useSelector } from 'react-redux';
 import { classnames } from '@/shared/lib/classnames/classnames';
-import { useTheme } from '@/app/providers/ThemeProvider';
+import { ThemeProvider, useTheme } from '@/app/providers/ThemeProvider';
 import { AppRouter } from '@/app/providers/router';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
-import { getUserMounted, initAuthData } from '@/entities/User';
+import { getUserMounted, initAuthData, useJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
@@ -14,7 +20,7 @@ import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { useAppToolbar } from '@/app/lib/useAppToolbar';
 
-export const App = () => {
+const App = memo(() => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const mounted = useSelector(getUserMounted);
@@ -68,4 +74,16 @@ export const App = () => {
       }
     />
   );
+});
+
+const withTheme = (Component: ComponentType) => () => {
+  const { theme: defaultTheme } = useJsonSettings();
+
+  return (
+    <ThemeProvider initialTheme={defaultTheme}>
+      <Component />
+    </ThemeProvider>
+  );
 };
+
+export default withTheme(App);

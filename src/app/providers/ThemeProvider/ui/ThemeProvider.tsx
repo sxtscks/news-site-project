@@ -4,7 +4,6 @@ import {
   Theme,
   ThemeContext,
 } from '../lib/ThemeContext';
-import { useJsonSettings } from '@/entities/User';
 
 interface ThemeProviderProps {
   initialTheme?: Theme;
@@ -15,18 +14,17 @@ const fallbackTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme;
 
 export const ThemeProvider = (props: ThemeProviderProps) => {
   const { children, initialTheme } = props;
-  const { theme: defaultTheme } = useJsonSettings();
   const [theme, setTheme] = useState<Theme>(
     initialTheme || fallbackTheme || Theme.LIGHT
   );
   const [isThemeInited, setThemeInited] = useState(false);
 
   useEffect(() => {
-    if (!isThemeInited && defaultTheme) {
-      setTheme(defaultTheme);
+    if (!isThemeInited && initialTheme) {
+      setTheme(initialTheme);
       setThemeInited(true);
     }
-  }, [defaultTheme, isThemeInited]);
+  }, [initialTheme, isThemeInited]);
 
   useEffect(() => {
     document.body.className = theme;
