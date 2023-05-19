@@ -50,7 +50,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
           </VStack>
           <Icon
             className={classes.button}
-            data-testid="sidebar-toggle"
+            dataTestId="sidebar-toggle"
             Svg={ArrowIcon}
             onClick={onToggle}
             clickable

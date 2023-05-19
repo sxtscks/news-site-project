@@ -1,7 +1,7 @@
 .button {
   cursor: pointer;
   color: var(--text-redesigned);
-  padding: 8px 16px;
+  padding: 6px 16px;
   display: flex;
   align-items: center;
 
@@ -20,9 +20,13 @@
 }
 
 .outline {
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
+  border: 2px solid var(--icon-redesigned);
+  border-radius: 34px;
   background: none;
+
+  &:hover {
+    border: 2px solid var(--accent-redesigned);
+  }
 }
 
 .filled {

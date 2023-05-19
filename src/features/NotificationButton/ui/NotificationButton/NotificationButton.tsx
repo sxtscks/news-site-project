@@ -10,7 +10,7 @@ import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon/Icon';
 import NotificationIconDeprecated from '@/shared/assets/icons/notification.svg';
 import NotificationIcon from '@/shared/assets/icons/notificationNew.svg';
 import { NotificationList } from '@/entities/Notification';
-import { Drawer } from '@/shared/ui/deprecated/Drawer/Drawer';
+import { Drawer } from '@/shared/ui/redesigned/Drawer/Drawer';
 import classes from './NotificationButton.module.scss';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Button } from '@/shared/ui/redesigned/Button/Button';

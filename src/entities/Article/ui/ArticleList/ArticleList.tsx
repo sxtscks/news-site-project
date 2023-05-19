@@ -6,6 +6,8 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import classes from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { HStack } from '@/shared/ui/redesigned/Stack/HStack/HStack';
 
 export interface ArticleListProps {
   className?: string;
@@ -49,9 +51,20 @@ export const ArticleList = memo((props: ArticleListProps) => {
   }
 
   return (
-    <div className={classnames('', {}, [className, classes[view]])}>
-      {articles.length > 0 ? articles.map(renderArticle) : null}
-      {isLoading && getSkeletons(view)}
-    </div>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <HStack wrap="wrap" gap="16" className={classnames('', {}, [])}>
+          {articles.length > 0 ? articles.map(renderArticle) : null}
+          {isLoading && getSkeletons(view)}
+        </HStack>
+      }
+      off={
+        <div className={classnames('', {}, [className, classes[view]])}>
+          {articles.length > 0 ? articles.map(renderArticle) : null}
+          {isLoading && getSkeletons(view)}
+        </div>
+      }
+    />
   );
 });

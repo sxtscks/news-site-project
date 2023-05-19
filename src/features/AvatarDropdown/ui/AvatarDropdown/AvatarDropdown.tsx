@@ -53,6 +53,10 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
       href: generatePath(RoutePath.profile, { id: userAuthData.id }),
     },
     {
+      content: t('Настройки'),
+      href: RoutePath.settings,
+    },
+    {
       content: t('Выйти'),
       onClick: onLogout,
     },

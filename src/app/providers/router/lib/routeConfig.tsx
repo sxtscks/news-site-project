@@ -9,6 +9,7 @@ import { ArticleEditPage } from '@/pages/ArticleEditPage';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
 import { UserRole } from '@/entities/User';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
+import { SettingsPage } from '@/pages/SettingsPage';
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
@@ -25,6 +26,7 @@ export enum AppRouter {
   ADMIN_PANEL = 'adminPanel',
   FORBIDDEN = 'forbidden',
   NOT_FOUND = 'notFound',
+  SETTINGS = 'settings',
 }
 
 export const RoutePath: Record<AppRouter, string> = {
@@ -36,6 +38,7 @@ export const RoutePath: Record<AppRouter, string> = {
   [AppRouter.ARTICLE_CREATE]: '/articles/new',
   [AppRouter.ARTICLE_EDIT]: '/articles/:id/edit',
   [AppRouter.ADMIN_PANEL]: '/adminPanel',
+  [AppRouter.SETTINGS]: '/settings',
   [AppRouter.FORBIDDEN]: '/forbidden',
   [AppRouter.NOT_FOUND]: '*',
 };
@@ -67,6 +70,11 @@ export const routeConfig: Record<AppRouter, AppRoutesProps> = {
   [AppRouter.ARTICLE_EDIT]: {
     path: RoutePath.articleEdit,
     element: <ArticleEditPage />,
+    authOnly: true,
+  },
+  [AppRouter.SETTINGS]: {
+    path: RoutePath.settings,
+    element: <SettingsPage />,
     authOnly: true,
   },
   [AppRouter.ADMIN_PANEL]: {

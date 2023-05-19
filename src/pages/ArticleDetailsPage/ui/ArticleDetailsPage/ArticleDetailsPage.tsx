@@ -14,6 +14,9 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { StickyLayout } from '@/shared/layouts/StickyLayout';
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
+import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
 
 export interface ArticleDetailsPageProps {
   className?: string;
@@ -28,19 +31,39 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <Page className={classnames('', {}, [className])}>
-        <VStack gap="16" max>
-          <ArticleDetailsPageHeader articleId={id ?? ''} />
-          <ArticleDetails id={id ?? ''} />
-          <ToggleFeatures
-            feature="isArticleRatingEnabled"
-            on={<ArticleRating id={id ?? ''} />}
-            off={null}
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <StickyLayout
+            content={
+              <Page className={classnames('', {}, [className])}>
+                <VStack gap="16" max>
+                  <DetailsContainer />
+                  <ArticleRating id={id ?? ''} />
+                  <ArticleRecommendationsList />
+                  <ArticleDetailsComments id={id ?? ''} />
+                </VStack>
+              </Page>
+            }
+            right={<AdditionalInfoContainer />}
           />
-          <ArticleRecommendationsList />
-          <ArticleDetailsComments id={id ?? ''} />
-        </VStack>
-      </Page>
+        }
+        off={
+          <Page className={classnames('', {}, [className])}>
+            <VStack gap="16" max>
+              <ArticleDetailsPageHeader articleId={id ?? ''} />
+              <ArticleDetails id={id ?? ''} />
+              <ToggleFeatures
+                feature="isArticleRatingEnabled"
+                on={<ArticleRating id={id ?? ''} />}
+                off={null}
+              />
+              <ArticleRecommendationsList />
+              <ArticleDetailsComments id={id ?? ''} />
+            </VStack>
+          </Page>
+        }
+      />
     </DynamicModuleLoader>
   );
 };

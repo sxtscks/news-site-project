@@ -15,6 +15,7 @@ export interface TextProps {
   variant?: TextVariant;
   align?: TextAlign;
   size?: TextSize;
+  bold?: boolean;
   dataTestId?: string;
 }
 
@@ -35,13 +36,14 @@ export const Text = memo((props: TextProps) => {
     align = 'left',
     size = 'size_m',
     dataTestId = 'Text',
+    bold,
   } = props;
 
   const HeaderTag = mapSizeToHeaderTag[size];
 
   return (
     <div
-      className={classnames('', {}, [
+      className={classnames('', { [classes.bold]: bold }, [
         className,
         classes[variant],
         classes[align],

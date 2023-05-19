@@ -29,19 +29,18 @@ export const App = () => {
     <ToggleFeatures
       feature="isAppRedesigned"
       on={
-        <div className={classnames('app_redesigned', {}, [theme])}>
+        <div id="app" className={classnames('app_redesigned', {}, [theme])}>
           <Suspense fallback="">
             <MainLayout
               header={<Navbar />}
               sidebar={<Sidebar />}
               content={<AppRouter />}
-              toolbar={<div>fdsafsdf</div>}
             />
           </Suspense>
         </div>
       }
       off={
-        <div className={classnames('app', {}, [theme])}>
+        <div id="app" className={classnames('app', {}, [theme])}>
           <Suspense fallback="">
             <Navbar />
             <div className="content">

@@ -5,9 +5,10 @@ import {
   AnimationProvider,
   useAnimationLibs,
 } from '@/shared/lib/components/AnimationProvider';
-import { Overlay } from '../../redesigned/Overlay/Overlay';
+import { Overlay } from '../Overlay/Overlay';
 import cls from './Drawer.module.scss';
-import { Portal } from '../../redesigned/Portal/Portal';
+import { Portal } from '../Portal/Portal';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface DrawerProps {
   className?: string;
@@ -79,9 +80,18 @@ export const DrawerContent = memo((props: DrawerProps) => {
   const display = y.to((py) => (py < height ? 'block' : 'none'));
 
   return (
-    <Portal>
+    <Portal element={document.getElementById('app') ?? document.body}>
       <div
-        className={classnames(cls.Drawer, {}, [className, theme, 'app_drawer'])}
+        className={classnames(cls.Drawer, {}, [
+          className,
+          theme,
+          'app_drawer',
+          toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => cls.drawerNew,
+            off: () => cls.drawerOld,
+          }),
+        ])}
       >
         <Overlay onClick={close} />
         <Spring.a.div
@@ -106,10 +116,6 @@ const DrawerAsync = (props: DrawerProps) => {
   return <DrawerContent {...props} />;
 };
 
-/**
- * Устарел, используем новые компоненты из папки redesign
- * @deprecated
- */
 export const Drawer = (props: DrawerProps) => (
   <AnimationProvider>
     <DrawerAsync {...props} />

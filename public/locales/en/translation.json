@@ -30,5 +30,13 @@
   "Закрыть": "Close",
   "Оцените статью": "Rate article",
   "Оставьте ваш отзыв о статье": "Leave your feedback",
-  "Спасибо за оценку!": "Thank you!"
+  "Спасибо за оценку!": "Thank you!",
+  "Настройки пользователя": "User settings",
+  "Новый": "New",
+  "Старый": "Old",
+  "Вариант интерфейса": "Interface version",
+  "Настройки": "Settings",
+  "Редактировать": "Edit",
+  "{{count}} просмотров_one": "{{count}} view",
+  "{{count}} просмотров_other": "{{count}} views"
 }

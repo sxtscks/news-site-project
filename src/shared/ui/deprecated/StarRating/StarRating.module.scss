@@ -2,14 +2,22 @@
   cursor: pointer;
 }
 
+.selected {
+  cursor: auto;
+}
+
 .normal {
   fill: none;
 }
 
-.hovered {
-  fill: var(--primary-color);
+.StarRating {
+  .hovered {
+    fill: var(--primary-color);
+  }
 }
 
-.selected {
-  cursor: auto;
+.StarRatingRedesigned {
+  .hovered {
+    fill: var(--icon-redesigned);
+  }
 }
