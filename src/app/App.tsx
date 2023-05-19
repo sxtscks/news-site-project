@@ -11,11 +11,14 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { useAppToolbar } from '@/app/lib/useAppToolbar';
 
 export const App = () => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const mounted = useSelector(getUserMounted);
+  const toolbar = useAppToolbar();
 
   useEffect(() => {
     if (!mounted) {
@@ -24,7 +27,17 @@ export const App = () => {
   }, [dispatch, mounted]);
 
   if (!mounted) {
-    return <PageLoader />;
+    return (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <div id="app" className={classnames('app_redesigned', {}, [theme])}>
+            <AppLoaderLayout />
+          </div>
+        }
+        off={<PageLoader />}
+      />
+    );
   }
 
   return (
@@ -37,6 +50,7 @@ export const App = () => {
               header={<Navbar />}
               sidebar={<Sidebar />}
               content={<AppRouter />}
+              toolbar={toolbar}
             />
           </Suspense>
         </div>

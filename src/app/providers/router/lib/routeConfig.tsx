@@ -97,3 +97,16 @@ export const routeConfig: Record<AppRouter, AppRoutesProps> = {
     element: <NotFoundPage />,
   },
 };
+
+export const AppRouteByPathPattern: Record<string, AppRouter> = {
+  [RoutePath.main]: AppRouter.MAIN,
+  [RoutePath.about]: AppRouter.ABOUT,
+  [RoutePath.profile]: AppRouter.PROFILE,
+  [RoutePath.articles]: AppRouter.ARTICLES,
+  [RoutePath.articleDetails]: AppRouter.ARTICLE_DETAILS,
+  [RoutePath.articleEdit]: AppRouter.ARTICLE_EDIT,
+  [RoutePath.settings]: AppRouter.SETTINGS,
+  [RoutePath.adminPanel]: AppRouter.ADMIN_PANEL,
+  [RoutePath.forbidden]: AppRouter.FORBIDDEN,
+  [RoutePath.articleCreate]: AppRouter.ARTICLE_CREATE,
+};
